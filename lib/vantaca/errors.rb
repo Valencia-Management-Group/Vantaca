@@ -5,31 +5,31 @@
 
 module Vantaca
   class ApiError < ::RuntimeError
-    def initialize(response)
-      @response = response
+    # def initialize(response)
+    #   @response = response
 
-      super()
-    end
+    #   super()
+    # end
 
-    def to_s
-      format(
-        '%<code>s: %<message>s (%<uri>s)',
-        code: @response.code,
-        message: self.class.error_message(@response.parsed_response),
-        uri: @response.request.last_uri.to_s
-      )
-    end
+    # def to_s
+    #   format(
+    #     '%<code>s: %<message>s (%<uri>s)',
+    #     code: @response.code,
+    #     message: self.class.error_message(@response.parsed_response),
+    #     uri: @response.request.last_uri.to_s
+    #   )
+    # end
 
-    def self.error_message(parsed_response)
-      case parsed_response
-      when String
-        parsed_response
-      when Hash
-        parsed_response['Message']
-      else
-        ''
-      end
-    end
+    # def self.error_message(parsed_response)
+    #   case parsed_response
+    #   when String
+    #     parsed_response
+    #   when Hash
+    #     parsed_response['Message']
+    #   else
+    #     ''
+    #   end
+    # end
   end
 
   # The client submitted invalid information.
