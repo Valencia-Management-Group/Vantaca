@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# Copyright (c) 2020 Valencia Management Group
+# All rights reserved.
+
 require 'spec_helper'
 
 RSpec.describe Vantaca::Communities do
