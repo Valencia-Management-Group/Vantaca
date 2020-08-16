@@ -1,0 +1,102 @@
+AllCops:
+  TargetRubyVersion: 2.6
+  # Always enable new cops, disabling manually when they don't fit.
+  EnabledByDefault: true
+  NewCops: enable
+
+# ------------------------------------------------------------------------------
+# Coding Style
+# ------------------------------------------------------------------------------
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineMethodCallBraceLayout:
+  EnforcedStyle: new_line
+
+Lint/SuppressedException:
+  AllowComments: true
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+# ------------------------------------------------------------------------------
+# Cops excluded for specific directories
+# ------------------------------------------------------------------------------
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Style/Copyright:
+  AutocorrectNotice: |
+    # Copyright (c) 2020 Valencia Management Group
+    # All rights reserved.
+  Notice: '^# Copyright (\(c\) )?2[0-9]{3} .+'
+  Exclude:
+    - 'bin/**/*'
+
+# ------------------------------------------------------------------------------
+# Cops that should not be run
+# ------------------------------------------------------------------------------
+
+# Recommends each array item be on its own line.
+Layout/MultilineArrayLineBreaks:
+  Enabled: false
+
+# Recommends right hand side of multi-line assignment be on a new line
+Layout/MultilineAssignmentLayout:
+  Enabled: false
+
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: false
+
+# Recommends `::File` instead of `File`
+Lint/ConstantResolution:
+  Enabled: false
+
+# Recommends Integer(xxx, 10) instead of xxx.to_i
+Lint/NumberConversion:
+  Enabled: false
+
+# Converts if-elsif to case-when.
+Style/CaseLikeIf:
+  Enabled: false
+
+Style/ConstantVisibility:
+  Enabled: false
+
+# Every class and module should be documented
+Style/Documentation:
+  Enabled: false
+
+# Every method should be documented
+Style/DocumentationMethod:
+  Enabled: false
+
+# Converts [1, 2, three: 3] to [1, 2, { three: 3 }]
+Style/HashAsLastArrayItem:
+  Enabled: false
+
+Style/MethodCalledOnDoEndBlock:
+  Enabled: false
+
+# Converts `a_method 1` to `a_method(1)`
+Style/MethodCallWithArgsParentheses:
+  Enabled: false
+
+Style/MissingElse:
+  Enabled: false
+
+Style/StringHashKeys:
+  Enabled: false
+
+# Forbids the use of "rubocop:disable"
+Style/DisableCopsWithinSourceCodeDirective:
+  Enabled: false
