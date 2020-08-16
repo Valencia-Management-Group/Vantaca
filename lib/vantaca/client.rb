@@ -7,7 +7,7 @@ module Vantaca
   class Client
     include HTTParty
 
-    # include Vantaca::Communities
+    include Vantaca::Communities
     # include Vantaca::Owners
     # include Vantaca::Properties
 

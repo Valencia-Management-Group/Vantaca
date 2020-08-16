@@ -20,7 +20,7 @@ DEFAULT_RESPONSE_HEADERS = {
 
 def mocked_file_path(request)
   query = request.uri.query
-    .gsub(/[?&](?:company|login|pwd)=\w+/, '')
+    .gsub(/&?(?:company|login|pwd)=\w+/, '')
     .gsub(/\W/, '_')
 
   path = [request.uri.path]
