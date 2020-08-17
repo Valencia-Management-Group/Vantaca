@@ -9,8 +9,7 @@ module Vantaca
 
     include Vantaca::Communities
     include Vantaca::Documents
-    # include Vantaca::Owners
-    # include Vantaca::Properties
+    include Vantaca::Owners
 
     headers 'Content-Type' => 'application/json'
 

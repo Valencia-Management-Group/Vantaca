@@ -12,6 +12,9 @@ RSpec.describe Vantaca::Documents do
 
   describe '#documents' do
     it 'GETs a list of documents' do
+      stub_request_for '/Read/Association?assocCode=999&includeDocuments=true',
+                       with: 'documents/all_documents.json'
+
       documents = client.documents(community: 999)
 
       expect(documents).to be_a Array
@@ -29,6 +32,8 @@ RSpec.describe Vantaca::Documents do
 
   describe '#document' do
     it 'GETs a single document' do
+      stub_request_for '/Read/GetDocument?assocCode=999&imgID=3537', with: 'documents/3537.pdf'
+
       client.document(community: 999, image_id: 3537) do |file|
         expect(file.size).to eq 204_523
       end

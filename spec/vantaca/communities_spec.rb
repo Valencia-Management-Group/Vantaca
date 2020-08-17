@@ -12,6 +12,8 @@ RSpec.describe Vantaca::Communities do
 
   describe '#communities' do
     it 'GETs a list of communities' do
+      stub_request_for '/Read/Association', with: 'communities/all_communities.json'
+
       communities = client.communities
 
       expect(communities).to be_a Array
@@ -22,6 +24,8 @@ RSpec.describe Vantaca::Communities do
 
   describe '#community' do
     it 'GETs a single community' do
+      stub_request_for '/Read/Association?assocCode=TEST', with: 'communities/single.json'
+
       community = client.community('TEST')
 
       expect(community).to be_a Vantaca::Models::Community
@@ -29,6 +33,8 @@ RSpec.describe Vantaca::Communities do
     end
 
     it 'raises an exception when a community does not exist' do
+      stub_request_for '/Read/Association?assocCode=HEY', with: :error
+
       expect { client.community('HEY') }
         .to raise_exception Vantaca::NotFoundError
     end

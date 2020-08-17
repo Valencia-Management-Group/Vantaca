@@ -57,11 +57,9 @@ module Vantaca
     protected
 
     def owner_parameters(community, input)
-      output = {
-        assocCode: community,
-        includeOwners: true
-      }
+      output = { includeOwners: true }
 
+      output[:assocCode] = community if community
       output[:includeOwnerTransactions] = true if input[:transactions]
       output[:includeOwnerChargeTransactions] = true if input[:charges]
       output[:includeOwnerBKList] = true if input[:bk_list]

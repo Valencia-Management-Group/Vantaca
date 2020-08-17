@@ -18,28 +18,48 @@ DEFAULT_RESPONSE_HEADERS = {
   # 'X-Powered-By': 'ASP.NET'
 }.freeze
 
-def mocked_file_path(request)
-  query = request.uri.query
-    .gsub(/&?(?:company|login|pwd)=\w+/, '')
-    .gsub(/\W/, '_')
+module StubbedEndpoints
+  def self.reset!
+    @active_stubs = []
+  end
 
-  path = [request.uri.path]
-  path << query unless query.empty?
+  def self.add_stub(path_and_params, filename)
+    uri = URI(path_and_params)
 
-  File.expand_path "../data/#{path.join('/')}", __FILE__
+    @active_stubs << {
+      path: uri.path,
+      query: (uri.query || '').split('&').map { |param| param.split('=') }.to_h,
+      file: File.new(File.expand_path("stubs/#{filename}", __dir__))
+    }
+  end
+
+  def self.matches_all_params?(row, all_params)
+    row[:query].all? { |key, value| all_params[key] == value }
+  end
+
+  def self.file_for_request(uri)
+    all_params = (uri.query || '').split('&').map { |param| param.split('=') }.to_h
+
+    match = @active_stubs.find do |row|
+      uri.path == row[:path] && matches_all_params?(row, all_params)
+    end
+
+    raise ArgumentError, "No active stubs found for #{uri}" unless match
+
+    match[:file]
+  end
 end
 
 def stubbed_get_response(request)
-  base_path = mocked_file_path(request)
-  match = Dir["#{base_path}.{json,pdf}"][0]
-
-  raise ArgumentError, "JSON or PDF file not found at #{base_path}" unless match
-
   {
-    body: File.new(match),
+    body: StubbedEndpoints.file_for_request(request.uri),
     status: 200,
     headers: DEFAULT_RESPONSE_HEADERS
   }
+end
+
+def stub_request_for(uri, with:)
+  StubbedEndpoints.add_stub(uri, with == :error ? 'error.json' : with)
 end
 
 def configure!(company: 'Vantaca', login: 'admin', password: 'abc123')
@@ -70,6 +90,8 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 
   config.before(:each) do
+    StubbedEndpoints.reset!
+
     # This has to be a regex to match with the basic authentication in the URL
     WebMock.stub_request(:any, /vantacaserviceeast\.azurewebsites\.net/)
       .to_return { |request| stubbed_get_response(request) }
