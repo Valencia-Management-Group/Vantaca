@@ -8,14 +8,14 @@ require 'vantaca'
 
 DEFAULT_RESPONSE_HEADERS = {
   'Content-Type': 'application/json; charset=utf-8',
-  'Cache-Control': 'no-cache',
+  'Cache-Control': 'no-cache'
   # 'Content-Length': '435',
-  'Date': 'Wed, 30 Mar 2016 17:49:27 GMT',
-  'Expires': '-1',
-  'Pragma': 'no-cache',
-  'Vary': 'Accept-Encoding',
-  'X-AspNet-Version': '4.0.30319',
-  'X-Powered-By': 'ASP.NET'
+  # 'Date': 'Wed, 30 Mar 2016 17:49:27 GMT',
+  # 'Expires': '-1',
+  # 'Pragma': 'no-cache',
+  # 'Vary': 'Accept-Encoding',
+  # 'X-AspNet-Version': '4.0.30319',
+  # 'X-Powered-By': 'ASP.NET'
 }.freeze
 
 def mocked_file_path(request)
@@ -26,12 +26,17 @@ def mocked_file_path(request)
   path = [request.uri.path]
   path << query unless query.empty?
 
-  File.expand_path "../data/#{path.join('/')}.json", __FILE__
+  File.expand_path "../data/#{path.join('/')}", __FILE__
 end
 
 def stubbed_get_response(request)
+  base_path = mocked_file_path(request)
+  match = Dir["#{base_path}.{json,pdf}"][0]
+
+  raise ArgumentError, "JSON or PDF file not found at #{base_path}" unless match
+
   {
-    body: File.new(mocked_file_path(request)),
+    body: File.new(match),
     status: 200,
     headers: DEFAULT_RESPONSE_HEADERS
   }

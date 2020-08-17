@@ -18,6 +18,8 @@ module Vantaca
       end
     end
 
+    # Loading an owner by their account number doesn't need a community code,
+    # since the account numbers are unique.
     def account_owner(account, **options)
       params = owner_parameters(nil, options).merge(account: account)
 

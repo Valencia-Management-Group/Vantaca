@@ -8,6 +8,7 @@ module Vantaca
     include HTTParty
 
     include Vantaca::Communities
+    include Vantaca::Documents
     # include Vantaca::Owners
     # include Vantaca::Properties
 
@@ -42,6 +43,18 @@ module Vantaca
       response.parsed_response
     end
 
+    def download(endpoint, **query)
+      raise ArgumentError, 'Vantaca::Client#download requires a block' unless block_given?
+
+      Tempfile.open('download') do |file|
+        file.binmode
+
+        file.write download_raw_data(endpoint, **query)
+
+        yield file
+      end
+    end
+
     protected
 
     def default_params
@@ -67,6 +80,18 @@ module Vantaca
         # As far as I'm aware, Vantaca does not return 100 - 199 or 205 - 399.
         raise Vantaca::ApiError, response
       end
+    end
+
+    def download_raw_data(endpoint, **query)
+      response = self.class.get(
+        endpoint,
+        headers: { 'Content-Type' => 'application/octet-stream' },
+        query: query.merge(default_params)
+      )
+
+      raise_exception(response) unless response.code == 200
+
+      response
     end
   end
 end

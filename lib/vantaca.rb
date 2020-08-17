@@ -3,22 +3,24 @@
 # Copyright (c) 2020 Valencia Management Group
 # All rights reserved.
 
-require 'base64'
 require 'httparty'
 require 'json'
+require 'tempfile'
 require 'time'
 
 require 'vantaca/errors'
 
 require 'vantaca/communities'
+require 'vantaca/documents'
 require 'vantaca/owners'
 # require 'vantaca/properties'
 
 require 'vantaca/models/base'
+require 'vantaca/models/address'
 require 'vantaca/models/community'
+require 'vantaca/models/document'
 require 'vantaca/models/owner'
 # require 'vantaca/models/property'
-require 'vantaca/models/address'
 
 require 'vantaca/configuration'
 require 'vantaca/client'
