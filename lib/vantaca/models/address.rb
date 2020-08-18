@@ -22,6 +22,26 @@ module Vantaca
         data['label']
       end
 
+      def address1
+        data['address1']
+      end
+
+      def address2
+        data['address2']
+      end
+
+      def city
+        data['city']
+      end
+
+      def state
+        data['state']
+      end
+
+      def zip
+        data['zip']
+      end
+
       def to_s
         [
           (data['address1'] if data['address1'].match?(/[[:graph:]]/)),

@@ -38,10 +38,16 @@ module Vantaca
         addresses.find { |address| address.id == data['mailingAddressID'] }
       end
 
-      def settle_date
+      def move_in_date
         return unless data['settleDate']
 
         Time.parse data['settleDate']
+      end
+
+      def move_out_date
+        return unless data['previousOwner']
+
+        Time.parse data['previousOwner']
       end
 
       def payment_plan?
@@ -54,6 +60,10 @@ module Vantaca
 
       def overall_balance
         data['overallBalance']
+      end
+
+      def current_owner?
+        data['previousOwner'].nil?
       end
     end
   end
