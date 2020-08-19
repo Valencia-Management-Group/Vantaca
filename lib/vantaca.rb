@@ -10,6 +10,7 @@ require 'time'
 
 require 'vantaca/errors'
 
+require 'vantaca/addresses'
 require 'vantaca/communities'
 require 'vantaca/documents'
 require 'vantaca/owners'

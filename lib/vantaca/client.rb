@@ -7,6 +7,7 @@ module Vantaca
   class Client
     include HTTParty
 
+    include Vantaca::Addresses
     include Vantaca::Communities
     include Vantaca::Documents
     include Vantaca::Owners

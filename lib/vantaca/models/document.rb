@@ -6,6 +6,8 @@
 module Vantaca
   module Models
     class Document < Base
+      SECURITY_LEVELS = %w[Public Homeowners Board Staff].freeze
+
       def id
         data['imgID']
       end
