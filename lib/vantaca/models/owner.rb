@@ -41,7 +41,7 @@ module Vantaca
 
       # TODO: use the `isMailing` flag once Vantaca adds it to the API data
       def alternate_mailing_addresses
-        primary_offsite_address_id = offsite ? data['mailingAddressID'] : nil
+        primary_offsite_address_id = offsite? ? data['mailingAddressID'] : nil
 
         addresses.reject { |address| address.id == primary_offsite_address_id }
       end
