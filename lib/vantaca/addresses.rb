@@ -14,7 +14,7 @@ module Vantaca
     end
 
     def delete_address(address_id)
-      response post('/Write/AddressDestroy', addrID: address_id)
+      response = post('/Write/AddressDestroy', addrID: address_id)
 
       true
     end
