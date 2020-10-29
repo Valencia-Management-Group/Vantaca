@@ -22,6 +22,14 @@ module Vantaca
         data['label']
       end
 
+      def mailing?
+        data['isMailing']
+      end
+
+      def international?
+        data['isInternational']
+      end
+
       def address1
         data['address1']
       end

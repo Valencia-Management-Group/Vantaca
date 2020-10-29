@@ -39,11 +39,10 @@ module Vantaca
         addresses.find { |address| address.id == data['mailingAddressID'] }
       end
 
-      # TODO: use the `isMailing` flag once Vantaca adds it to the API data
       def alternate_mailing_addresses
         primary_offsite_address_id = offsite? ? data['mailingAddressID'] : nil
 
-        addresses.reject { |address| address.id == primary_offsite_address_id }
+        addresses.select { |address| address.mailing? && address.id != primary_offsite_address_id }
       end
 
       def move_in_date
