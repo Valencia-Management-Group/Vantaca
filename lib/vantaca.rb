@@ -13,6 +13,7 @@ require 'vantaca/errors'
 require 'vantaca/addresses'
 require 'vantaca/communities'
 require 'vantaca/documents'
+require 'vantaca/ledger'
 require 'vantaca/owners'
 
 require 'vantaca/models/base'
@@ -28,13 +29,13 @@ require 'vantaca/version'
 module Vantaca
   class << self
     attr_accessor :configuration
+  end
 
-    def configure
-      self.configuration ||= Configuration.new
+  def self.configure
+    self.configuration ||= Configuration.new
 
-      yield(configuration) if block_given?
+    yield(configuration) if block_given?
 
-      configuration
-    end
+    configuration
   end
 end
