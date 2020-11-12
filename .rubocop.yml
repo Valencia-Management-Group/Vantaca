@@ -39,8 +39,6 @@ Style/Copyright:
     # Copyright (c) 2020 Valencia Management Group
     # All rights reserved.
   Notice: '^# Copyright (\(c\) )?2[0-9]{3} .+'
-  Exclude:
-    - 'bin/**/*'
 
 # ------------------------------------------------------------------------------
 # Cops that should not be run
@@ -72,11 +70,11 @@ Style/CaseLikeIf:
 Style/ConstantVisibility:
   Enabled: false
 
-# Every class and module should be documented
+# Every class and module should be documented, but I'm not *that* professional.
 Style/Documentation:
   Enabled: false
 
-# Every method should be documented
+# Every method should be documented, but I'm not *that* professional.
 Style/DocumentationMethod:
   Enabled: false
 

@@ -1,10 +1,10 @@
 {
     "[ruby]": {
-        "editor.rulers": [100],
+        "editor.rulers": [120],
         "editor.tabSize": 2,
     },
     "[yaml]": {
-        "editor.rulers": [100],
+        "editor.rulers": [120],
         "editor.tabSize": 2,
     },
     "files.insertFinalNewline": true,
