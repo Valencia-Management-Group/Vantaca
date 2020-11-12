@@ -4,6 +4,7 @@
 # All rights reserved.
 
 module Vantaca
+  # Methods which load or modify one or more owners.
   module Owners
     VANTACA_PARAMETERS = {
       bk_list: :includeOwnerBKList,
@@ -14,7 +15,7 @@ module Vantaca
 
     # Load a list of all owners in a specific community
     #
-    # @param assoc_code [String] the 3-4 character abbreviation for a community
+    # @param assoc_code [String] the 3-4 character association code for a community
     # @option opts [Symbol, Array<Symbol>] :include Include additional information, using keys from VANTACA_PARAMETERS
     # @return [Array<Vantaca::Models::Owner>] a list of all current and former owners in this community.
     def community_owners(assoc_code, **options)
@@ -47,7 +48,7 @@ module Vantaca
 
     # Load a list of all owners for a specific property
     #
-    # @param assoc_code [String] the 3-4 character abbreviation for a community
+    # @param assoc_code [String] the 3-4 character association code for a community
     # @param property_id [Fixnum] the internal Vantaca property ID
     # @option opts [Symbol, Array<Symbol>] :include Include additional information, using keys from VANTACA_PARAMETERS
     # @return [Array<Vantaca::Models::Owner>] a list of all current and former owners for this property.
@@ -67,7 +68,7 @@ module Vantaca
     # Load a specific homeowner - this currently loads only the first owner record, even if the owner has multiple
     # properties in this community.
     #
-    # @param assoc_code [String] the 3-4 character abbreviation for a community
+    # @param assoc_code [String] the 3-4 character association code for a community
     # @param owner_id [Fixnum] the internal Vantaca homeowner ID
     # @option opts [Symbol, Array<Symbol>] :include Include additional information, using keys from VANTACA_PARAMETERS
     # @return [Vantaca::Models::Owner] the owner record for this homeowner

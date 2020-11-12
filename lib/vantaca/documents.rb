@@ -4,6 +4,7 @@
 # All rights reserved.
 
 module Vantaca
+  # Methods which fetch lists of documents or a document itself
   module Documents
     def documents(community:)
       get('/Read/Association', assocCode: community, includeDocuments: true)

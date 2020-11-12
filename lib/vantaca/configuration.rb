@@ -4,6 +4,7 @@
 # All rights reserved.
 
 module Vantaca
+  # The basic configuration object for the Vantaca client. I wish these weren't passed in the URL...
   class Configuration
     attr_reader :login, :password, :company
 

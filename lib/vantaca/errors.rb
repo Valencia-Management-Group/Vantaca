@@ -4,6 +4,7 @@
 # All rights reserved.
 
 module Vantaca
+  # The base error class which more specific API error classes inherit from.
   class ApiError < ::RuntimeError
     DEFAULT_MESSAGE = 'An unknown error occurred.'
 

@@ -5,6 +5,7 @@
 
 module Vantaca
   module Models
+    # Information about an address, received from the Vantaca API
     class Address < Base
       attr_reader :owner
 

@@ -26,6 +26,7 @@ require 'vantaca/configuration'
 require 'vantaca/client'
 require 'vantaca/version'
 
+# The module we're all here for.
 module Vantaca
   class << self
     attr_accessor :configuration

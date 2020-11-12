@@ -5,6 +5,7 @@
 
 module Vantaca
   module Models
+    # Information about an owner, received from the Vantaca API
     class Owner < Base
       def id
         data['hoid']

@@ -5,6 +5,7 @@
 
 module Vantaca
   module Models
+    # Information about a community, received from the Vantaca API
     class Community < Base
       def id
         data['assocCode']

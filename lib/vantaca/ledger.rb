@@ -4,6 +4,7 @@
 # All rights reserved.
 
 module Vantaca
+  # Methods which allow posting and deletion of ledger entries.
   module Ledger
     def create_ledger_entry(account, ledger_attributes)
       post('/Write/CreateLedger', ledger_attributes.merge(account: account))

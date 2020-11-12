@@ -4,6 +4,7 @@
 # All rights reserved.
 
 module Vantaca
+  # The client which enables communication with the Vantaca API
   class Client
     include HTTParty
 

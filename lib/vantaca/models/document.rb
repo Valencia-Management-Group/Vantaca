@@ -5,6 +5,7 @@
 
 module Vantaca
   module Models
+    # Information about a document, received from the Vantaca API
     class Document < Base
       SECURITY_LEVELS = %w[Public Homeowners Board Staff].freeze
 

@@ -4,6 +4,7 @@
 # All rights reserved.
 
 module Vantaca
+  # Methods which allow creation, modification, and deletion of homeowner addresses.
   module Addresses
     def create_address(homeowner_id, address_attributes)
       post('/Write/AddressCreate', address_attributes.merge(hoid: homeowner_id))

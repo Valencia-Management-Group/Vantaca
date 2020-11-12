@@ -70,10 +70,6 @@ Style/CaseLikeIf:
 Style/ConstantVisibility:
   Enabled: false
 
-# Every class and module should be documented, but I'm not *that* professional.
-Style/Documentation:
-  Enabled: false
-
 # Every method should be documented, but I'm not *that* professional.
 Style/DocumentationMethod:
   Enabled: false
