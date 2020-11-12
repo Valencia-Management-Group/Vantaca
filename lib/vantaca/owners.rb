@@ -116,14 +116,12 @@ module Vantaca
     protected
 
     def owner_parameters(community, options)
-      includes = Array(options[:include])
-
       params = { includeOwners: true }
 
       params[:assocCode] = community if community
 
-      VANTACA_PARAMETERS.each do |human, vantaca_parameter|
-        params[vantaca_parameter] = true if includes[human]
+      VANTACA_PARAMETERS.values_at(*Array(options[:include])).compact.each do |vantaca_parameter|
+        params[vantaca_parameter] = true
       end
 
       params
