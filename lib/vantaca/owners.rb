@@ -54,6 +54,30 @@ module Vantaca
       Vantaca::Models::Owner.new response.dig(0, 'owners', 0)
     end
 
+    # This data is already included in the basic owner data - this endpoint isn't very useful.
+    def communication_preferences(owner_id)
+      response = get('/Read/GetCommPreference', hoID: owner_id)
+
+      raise Vantaca::NotFoundError unless response
+
+      {
+        communication: response['commpref'],
+        billing: response['billingpref']
+      }
+    end
+
+    def update_communication_preferences(owner_id, communication: nil, billing: nil)
+      raise ArgumentError, 'At least communication or billing must be passed.' unless communication || billing
+
+      params = { hoid: owner_id }
+      params[:commpref] = communication if communication
+      params[:billingpref] = billing if billing
+
+      post('/Write/commPrefUpdate')
+
+      true
+    end
+
     protected
 
     def owner_parameters(community, input)

@@ -72,6 +72,13 @@ module Vantaca
       def current_owner?
         data['previousOwner'].nil?
       end
+
+      def communication_preferences
+        {
+          communication: response['CommPref'],
+          billing: response['BillingPref']
+        }
+      end
     end
   end
 end
