@@ -87,16 +87,18 @@ module Vantaca
 
     protected
 
-    def owner_parameters(community, input)
-      output = { includeOwners: true }
+    def owner_parameters(community, options)
+      includes = Array(options[:include])
 
-      output[:assocCode] = community if community
+      params = { includeOwners: true }
 
-      VANTACA_PARAMETERS.each do |human, vantaca|
-        output[vantaca] = true if input[human]
+      params[:assocCode] = community if community
+
+      VANTACA_PARAMETERS.each do |human, vantaca_parameter|
+        params[vantaca_parameter] = true if includes[human]
       end
 
-      output
+      params
     end
   end
 end
