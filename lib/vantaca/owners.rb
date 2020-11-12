@@ -5,6 +5,13 @@
 
 module Vantaca
   module Owners
+    VANTACA_PARAMETERS = {
+      bk_list: :includeOwnerBKList,
+      charges: :includeOwnerChargeTransactions,
+      next_assessment: :includeNextAssessment,
+      transactions: :includeOwnerTransactions
+    }.freeze
+
     # Load a list of all owners in a specific community
     def community_owners(assoc_code, **options)
       params = owner_parameters(assoc_code, options)
@@ -84,9 +91,10 @@ module Vantaca
       output = { includeOwners: true }
 
       output[:assocCode] = community if community
-      output[:includeOwnerTransactions] = true if input[:transactions]
-      output[:includeOwnerChargeTransactions] = true if input[:charges]
-      output[:includeOwnerBKList] = true if input[:bk_list]
+
+      VANTACA_PARAMETERS.each do |human, vantaca|
+        output[vantaca] = true if input[human]
+      end
 
       output
     end
