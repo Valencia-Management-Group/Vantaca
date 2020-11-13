@@ -76,8 +76,8 @@ module Vantaca
 
       def communication_preferences
         {
-          communication: response['CommPref'],
-          billing: response['BillingPref']
+          communication: data['CommPref'],
+          billing: data['BillingPref']
         }
       end
     end

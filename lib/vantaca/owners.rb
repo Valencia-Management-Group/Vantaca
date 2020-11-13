@@ -108,7 +108,7 @@ module Vantaca
       params[:commpref] = communication if communication
       params[:billingpref] = billing if billing
 
-      post('/Write/commPrefUpdate')
+      post('/Write/commPrefUpdate', params)
 
       true
     end
