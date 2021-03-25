@@ -10,7 +10,8 @@ module Vantaca
       bk_list: :includeOwnerBKList,
       charges: :includeOwnerChargeTransactions,
       next_assessment: :includeNextAssessment,
-      transactions: :includeOwnerTransactions
+      transactions: :includeOwnerTransactions,
+      breakdown: :includebalanceByChargeType
     }.freeze
 
     # Load a list of all owners in a specific community
