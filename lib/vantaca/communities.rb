@@ -17,7 +17,7 @@ module Vantaca
 
     # Load a single community by its abbreviation.
     #
-    # #param assoc_code [String] The 2-4 character association code of the community
+    # @param assoc_code [String] The 2-4 character association code of the community
     # @return [Vantaca::Models::Community] The community with the indicated association code.
     def community(assoc_code)
       response = get('/Read/Association', assocCode: assoc_code)
