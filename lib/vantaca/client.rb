@@ -13,6 +13,7 @@ module Vantaca
     include Vantaca::Documents
     include Vantaca::Ledger
     include Vantaca::Owners
+    include Vantaca::Providers
 
     headers 'Content-Type' => 'application/json'
 
