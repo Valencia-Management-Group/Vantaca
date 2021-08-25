@@ -54,7 +54,9 @@ module Vantaca
       end
 
       def insurance
-        @insurance ||= data['providerInsurance'].map do |record|
+        return unless @data['providerInsurance']
+
+        @insurance ||= @data['providerInsurance'].map do |record|
           Vantaca::Models::ProviderInsurance.new(record, provider: self)
         end
       end

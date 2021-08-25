@@ -12,8 +12,7 @@ RSpec.describe Vantaca::Documents do
 
   describe '#documents' do
     it 'GETs a list of documents' do
-      stub_request_for '/Read/Association?assocCode=999&includeDocuments=true',
-                       with: 'documents/all_documents.json'
+      stub_request_for '/Read/Association?assocCode=999&includeDocuments=true', with: 'documents/all_documents'
 
       documents = client.documents(community: 999)
 

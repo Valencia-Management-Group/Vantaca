@@ -12,7 +12,7 @@ RSpec.describe Vantaca::Communities do
 
   describe '#communities' do
     it 'GETs a list of communities' do
-      stub_request_for '/Read/Association', with: 'communities/all_communities.json'
+      stub_request_for '/Read/Association', with: 'communities/all_communities'
 
       communities = client.communities
 
@@ -24,7 +24,7 @@ RSpec.describe Vantaca::Communities do
 
   describe '#community' do
     it 'GETs a single community' do
-      stub_request_for '/Read/Association?assocCode=TEST', with: 'communities/single.json'
+      stub_request_for '/Read/Association?assocCode=TEST', with: 'communities/single'
 
       community = client.community('TEST')
 
