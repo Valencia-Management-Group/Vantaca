@@ -5,6 +5,7 @@
 
 require 'webmock/rspec'
 require 'vantaca'
+require 'yaml'
 
 require_relative 'support/api_helpers'
 require_relative 'support/stubbed_endpoints'

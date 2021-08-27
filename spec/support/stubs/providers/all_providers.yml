@@ -1,0 +1,56 @@
+---
+status: 200
+body:
+  - providerID: 123
+    name: Joe's Plumbing
+    address: 456 Main Street
+    unit: Suite 12
+    city: Valencia
+    state: CA
+    zip: 91355
+    email: joe@valenciamgmt.com
+    phone: (555) 123-4567
+    fax: ""
+    taxID: ""
+    onHold: false
+    onHoldReason: ""
+    compliant: true
+    complianceStatus: Approved
+    complianceGroup: ""
+    providerInsurance: null
+
+  - providerID: 124
+    name: Dave's Plumbing
+    address: 456 Main Street
+    unit: Suite 13
+    city: Valencia
+    state: CA
+    zip: 91355
+    email: dave@valenciamgmt.com
+    phone: (555) 123-4567
+    fax: ""
+    taxID: ""
+    onHold: false
+    onHoldReason: ""
+    compliant: true
+    complianceStatus: Approved
+    complianceGroup: ""
+    providerInsurance: null
+
+  - providerID: 125
+    name": Rob's Plumbing
+    address": 456 Main Street
+    unit": Suite 14
+    city": Valencia
+    state": CA
+    zip": 91355
+    email": rob@valenciamgmt.com
+    phone": (555) 123-4567
+    fax": ""
+    taxID": ""
+    onHold": false
+    onHoldReason": ""
+    compliant": true
+    complianceStatus": Approved
+    complianceGroup": ""
+    providerInsurance": null

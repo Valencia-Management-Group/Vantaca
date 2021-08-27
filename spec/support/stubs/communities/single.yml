@@ -1,0 +1,16 @@
+---
+status: 200
+body:
+  - assocCode: "TEST"
+    assocName: "VMG Testing Sandbox"
+    type: "HOA"
+    taxID: "999999999"
+    address1: "27644 Newhall Ranch Rd #45"
+    address2: ""
+    city: "Valencia"
+    state: "CA"
+    zip: "91355"
+    charges: null
+    lateFees: null
+    documents: null
+    owners: null

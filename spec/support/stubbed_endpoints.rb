@@ -30,7 +30,7 @@ module Vantaca
           .split('&')
           .map { |param| param.split('=') }
           .to_h,
-        file: File.new(File.expand_path("stubs/#{filename}", __dir__))
+        file: File.expand_path("stubs/#{filename}", __dir__)
       }
     end
 
@@ -38,7 +38,7 @@ module Vantaca
       row[:query].all? { |key, value| all_params[key] == value }
     end
 
-    def self.file_for_request(uri)
+    def self.response_for_request(uri)
       all_params = (uri.query || '')
         .split('&')
         .map { |param| param.split('=') }
@@ -50,13 +50,23 @@ module Vantaca
 
       raise ArgumentError, "No active stubs found for #{uri}" unless match
 
-      match[:file]
+      parsed_response(match)
+    end
+
+    def self.parsed_response(response)
+      return File.open(response[:file]), 200 unless response[:file].end_with?('.yml')
+
+      data = YAML.safe_load(File.read(response[:file]))
+
+      [JSON.dump(data['body']), data['status']]
     end
 
     def self.stubbed_get_response(request)
+      body, status = response_for_request(request.uri)
+
       {
-        body: file_for_request(request.uri),
-        status: 200,
+        body: body,
+        status: status,
         headers: DEFAULT_RESPONSE_HEADERS
       }
     end

@@ -29,6 +29,7 @@ RSpec.describe Vantaca::Providers do
       provider = client.provider('123')
 
       expect(provider).to be_a Vantaca::Models::Provider
+      expect(provider.name).to eq "Joe's Plumbing"
       expect(provider.insurance).to be nil
     end
 
