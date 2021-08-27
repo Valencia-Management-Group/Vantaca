@@ -34,6 +34,19 @@ module Vantaca
       }
     end
 
+    def self.add_error_stub(path_and_params, with:)
+      uri = URI(path_and_params)
+
+      @active_stubs << {
+        path: uri.path,
+        query: (uri.query || '')
+          .split('&')
+          .map { |param| param.split('=') }
+          .to_h,
+        error: with
+      }
+    end
+
     def self.matches_all_params?(row, all_params)
       row[:query].all? { |key, value| all_params[key] == value }
     end
@@ -54,6 +67,8 @@ module Vantaca
     end
 
     def self.parsed_response(response)
+      return nil, [response[:error]] if response[:error]
+
       return File.open(response[:file]), 200 unless response[:file].end_with?('.yml')
 
       data = YAML.safe_load(File.read(response[:file]))

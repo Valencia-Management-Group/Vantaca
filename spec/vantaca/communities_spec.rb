@@ -33,7 +33,7 @@ RSpec.describe Vantaca::Communities do
     end
 
     it 'raises an exception when a community does not exist' do
-      stub_request_for '/Read/Association?assocCode=HEY', with: :error
+      stub_error_request_for '/Read/Association?assocCode=HEY', with: '204 No Content'
 
       expect { client.community('HEY') }
         .to raise_exception Vantaca::NotFoundError

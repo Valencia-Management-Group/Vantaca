@@ -16,5 +16,9 @@ module Vantaca
     def stub_request_for(uri, with:)
       StubbedEndpoints.add_stub(uri, with.to_s['.'] ? with : "#{with}.yml")
     end
+
+    def stub_error_request_for(uri, with:)
+      StubbedEndpoints.add_error_stub(uri, with: with)
+    end
   end
 end
