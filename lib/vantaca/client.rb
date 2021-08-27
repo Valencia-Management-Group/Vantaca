@@ -73,7 +73,7 @@ module Vantaca
       when 404 then raise Vantaca::NotFoundError, response
       when 400..499 then raise Vantaca::ClientError, response
       when 500..599
-        message = Vantaca::ApiError.error_message(response.parsed_response)
+        message = response.response.code[4..]
 
         # These errors can largely be ignored - it's not our fault
         raise Vantaca::TimeoutError, response if message['Timeout expired']

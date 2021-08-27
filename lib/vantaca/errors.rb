@@ -25,17 +25,20 @@ module Vantaca
       )
     end
 
+    # Vantaca doesn't put the error message in the response body - it's in the status header!
     def error_messages
-      return [self.class::DEFAULT_MESSAGE] unless @response&.body
+      [@response.response.code[4..]]
 
-      case parsed_response = @response.parsed_response
-      when String
-        [parsed_response]
-      when Array
-        parsed_response
-      else
-        [@response.body]
-      end
+      # return [self.class::DEFAULT_MESSAGE] unless @response&.body
+
+      # case parsed_response = @response.parsed_response
+      # when String
+      #   [parsed_response]
+      # when Array
+      #   parsed_response
+      # else
+      #   [@response.body]
+      # end
     end
 
     def filtered_uri
