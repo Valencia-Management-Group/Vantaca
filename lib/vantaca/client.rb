@@ -25,7 +25,7 @@ module Vantaca
     def get(endpoint, **query)
       response = self.class.get endpoint, query: query.merge(default_params)
 
-      raise_exception(response) unless response.code == 200
+      raise_exception(response) unless (200..299).include? response.code
 
       response.parsed_response
     end
