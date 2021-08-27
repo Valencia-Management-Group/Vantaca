@@ -8,15 +8,15 @@ module Vantaca
     # Information about a provider (vendor)
     class Provider < Base
       def id
-        data['providerID']
+        @data['providerID']
       end
 
       def name
-        data['name']
+        @data['name']
       end
 
       def tax_id
-        data['taxID']
+        @data['taxID']
       end
 
       def compliant?

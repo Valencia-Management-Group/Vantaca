@@ -22,6 +22,7 @@ module Vantaca
     def community(assoc_code)
       response = get('/Read/Association', assocCode: assoc_code)
 
+      # The API sends a 204 No Content response if there's no matching community.
       raise Vantaca::NotFoundError unless response
 
       Vantaca::Models::Community.new response[0]
