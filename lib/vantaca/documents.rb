@@ -7,11 +7,13 @@ module Vantaca
   # Methods which fetch lists of documents or a document itself
   module Documents
     def documents(community:)
-      get('/Read/Association', assocCode: community, includeDocuments: true)
-        .dig(0, 'documents')
-        .map do |document_data|
-          Vantaca::Models::Document.new document_data
-        end
+      response = get('/Read/Association', assocCode: community, includeDocuments: true)
+
+      return [] unless response
+
+      response.dig(0, 'documents').map do |document_data|
+        Vantaca::Models::Document.new document_data
+      end
     end
 
     # Download an actual file
