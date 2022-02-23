@@ -31,4 +31,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'webmock', '~> 3.4'
 
   spec.add_dependency 'httparty', '~> 0.16'
+
+  spec.metadata['rubygems_mfa_required'] = 'true'
 end
