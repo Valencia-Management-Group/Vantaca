@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.version = Vantaca::VERSION
   spec.authors = ['Steven Hoffman']
   spec.email = ['shoffman@valenciamgmt.com']
-  spec.required_ruby_version = '>= 2.6.0'
+  spec.required_ruby_version = '>= 3.0.0'
 
   spec.summary = %(Vantaca API)
   spec.homepage = 'http://github.com/ValenciaMgmt/Vantaca'
