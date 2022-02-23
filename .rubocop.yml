@@ -1,5 +1,8 @@
+require:
+  - rubocop-rake
+
 AllCops:
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 3.0
   # Always enable new cops, disabling manually when they don't fit.
   EnabledByDefault: true
   NewCops: enable

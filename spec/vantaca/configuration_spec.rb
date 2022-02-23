@@ -11,7 +11,7 @@ RSpec.describe Vantaca::Configuration do
 
     it 'creates a new client with an alphan' do
       expect { configure!(company: 'Vantaca', login: 'admin', password: 'abc123') }
-        .to_not raise_exception
+        .not_to raise_exception
     end
 
     it 'fails when the company is not alphanumeric characters' do

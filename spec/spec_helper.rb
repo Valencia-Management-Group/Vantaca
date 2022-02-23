@@ -29,7 +29,7 @@ RSpec.configure do |config|
 
   Kernel.srand config.seed
 
-  config.before(:each) do
+  config.before do
     Vantaca::StubbedEndpoints.reset!
 
     # This has to be a regex to match with the basic authentication in the URL
