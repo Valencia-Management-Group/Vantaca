@@ -26,7 +26,7 @@ module Vantaca
 
       @active_stubs << {
         path: uri.path,
-        query: (uri.query || '').split('&').to_h { |param| param.split('=') },
+        query: (uri.query || '').split('&').to_h { _1.split('=') },
         file: File.expand_path("stubs/#{filename}", __dir__)
       }
     end
@@ -34,23 +34,15 @@ module Vantaca
     def self.add_error_stub(path_and_params, with:)
       uri = URI(path_and_params)
 
-      @active_stubs << {
-        path: uri.path,
-        query: (uri.query || '').split('&').to_h { |param| param.split('=') },
-        error: with
-      }
+      @active_stubs << { path: uri.path, query: (uri.query || '').split('&').to_h { _1.split('=') }, error: with }
     end
 
-    def self.matches_all_params?(row, all_params)
-      row[:query].all? { |key, value| all_params[key] == value }
-    end
+    def self.matches_all_params?(row, all_params) = row[:query].all? { |key, value| all_params[key] == value }
 
     def self.response_for_request(uri)
-      all_params = (uri.query || '').split('&').to_h { |param| param.split('=') }
+      all_params = (uri.query || '').split('&').to_h { _1.split('=') }
 
-      match = @active_stubs.find do |row|
-        uri.path == row[:path] && matches_all_params?(row, all_params)
-      end
+      match = @active_stubs.find { uri.path == _1[:path] && matches_all_params?(_1, all_params) }
 
       raise ArgumentError, "No active stubs found for #{uri}" unless match
 
@@ -71,8 +63,8 @@ module Vantaca
       body, status = response_for_request(request.uri)
 
       {
-        body: body,
-        status: status,
+        body:,
+        status:,
         headers: DEFAULT_RESPONSE_HEADERS
       }
     end

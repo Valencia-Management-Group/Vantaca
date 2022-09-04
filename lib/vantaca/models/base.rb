@@ -13,13 +13,9 @@ module Vantaca
         @data = data
       end
 
-      def dig(*path)
-        @data.dig(*path)
-      end
+      def dig(*path) = @data.dig(*path)
 
-      def [](key)
-        @data[key]
-      end
+      def [](key) = @data[key]
     end
   end
 end

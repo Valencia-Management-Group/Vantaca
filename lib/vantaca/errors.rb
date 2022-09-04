@@ -41,9 +41,7 @@ module Vantaca
       # end
     end
 
-    def filtered_uri
-      @response.request.last_uri.to_s.gsub(/(company|login|pwd)=(?:[a-z0-9]+)/i, '\1=[FILTERED]')
-    end
+    def filtered_uri = @response.request.last_uri.to_s.gsub(/(company|login|pwd)=(?:[a-z0-9]+)/i, '\1=[FILTERED]')
   end
 
   # The client submitted invalid information.

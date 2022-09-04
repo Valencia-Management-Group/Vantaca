@@ -15,41 +15,23 @@ module Vantaca
         @owner = owner
       end
 
-      def id
-        data['addrID']
-      end
+      def id = data['addrID']
 
-      def label
-        data['label']
-      end
+      def label = data['label']
 
-      def mailing?
-        data['isMailing']
-      end
+      def mailing? = data['isMailing']
 
-      def international?
-        data['isInternational']
-      end
+      def international? = data['isInternational']
 
-      def address1
-        data['address1']
-      end
+      def address1 = data['address1']
 
-      def address2
-        data['address2']
-      end
+      def address2 = data['address2']
 
-      def city
-        data['city']
-      end
+      def city = data['city']
 
-      def state
-        data['state']
-      end
+      def state = data['state']
 
-      def zip
-        data['zip']
-      end
+      def zip = data['zip']
 
       def to_s
         [

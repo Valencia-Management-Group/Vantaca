@@ -10,9 +10,7 @@ module Vantaca
     #
     # @return [Array<Vantaca::Models::Community>] An array of all communities managed.
     def communities
-      get('/Read/Association').map do |community_data|
-        Vantaca::Models::Community.new community_data
-      end
+      get('/Read/Association').map { Vantaca::Models::Community.new(_1) }
     end
 
     # Load a single community by its abbreviation.

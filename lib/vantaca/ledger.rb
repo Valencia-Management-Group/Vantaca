@@ -17,7 +17,7 @@ module Vantaca
     def create_ledger_entry(account, type:, charge_id:, date:, amount:, description:) # rubocop:disable Metrics/ParameterLists
       get(
         '/Write/CreateLedger',
-        account: account, type: type, assocChgID: charge_id, ledgerDate: date, amount: amount, Descr: description
+        account:, type:, assocChgID: charge_id, ledgerDate: date, amount:, Descr: description
       )
     end
 

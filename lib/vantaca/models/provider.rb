@@ -7,58 +7,36 @@ module Vantaca
   module Models
     # Information about a provider (vendor)
     class Provider < Base
-      def id
-        @data['providerID']
-      end
+      def id = @data['providerID']
 
-      def name
-        @data['name']
-      end
+      def name = @data['name']
 
-      def tax_id
-        @data['taxID']
-      end
+      def tax_id = @data['taxID']
 
-      def compliant?
-        @data['compliant']
-      end
+      def compliant? = @data['compliant']
 
-      def on_hold?
-        @data['onHold']
-      end
+      def on_hold? = @data['onHold']
 
-      def hold_reason
-        @data['onHoldReason']
-      end
+      def hold_reason = @data['onHoldReason']
 
-      def compliance_group
-        # Known values: ''
-        @data['complianceGroup']
-      end
+      # Known values: '', 'Consultant', 'Excluded', 'Exempt'Single Property', 'Excluded'
+      def compliance_group = @data['complianceGroup']
 
-      def compliance_status
-        # Known values: 'Approved'
-        @data['complianceStatus']
-      end
+      # Known values: 'Approved', 'Compliance Exempt', 'Consultant', 'Inactive', 'Offsite Service', 'Pending',
+      # 'Professional Services', 'Site Conditional', 'Supplier', 'Suspended', 'Unregistered', 'VIVE Excluded',
+      # 'VIVE Internal Review'
+      def compliance_status = @data['complianceStatus']
 
-      def email
-        @data['email']
-      end
+      def email = @data['email']
 
-      def phone
-        @data['phone']
-      end
+      def phone = @data['phone']
 
-      def fax
-        @data['fax']
-      end
+      def fax = @data['fax']
 
       def insurance
         return unless @data['providerInsurance']
 
-        @insurance ||= @data['providerInsurance'].map do |record|
-          Vantaca::Models::ProviderInsurance.new(record, provider: self)
-        end
+        @insurance ||= @data['providerInsurance'].map { Vantaca::Models::ProviderInsurance.new(_1, provider: self) }
       end
     end
   end

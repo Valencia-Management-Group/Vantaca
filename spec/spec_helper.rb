@@ -33,9 +33,8 @@ RSpec.configure do |config|
     Vantaca::StubbedEndpoints.reset!
 
     # This has to be a regex to match with the basic authentication in the URL
-    WebMock.stub_request(:any, /vantacaserviceeast\.azurewebsites\.net/).to_return do |request|
-      Vantaca::StubbedEndpoints.stubbed_get_response(request)
-    end
+    WebMock.stub_request(:any, /vantacaserviceeast\.azurewebsites\.net/)
+      .to_return { Vantaca::StubbedEndpoints.stubbed_get_response(_1) }
   end
 
   config.include Vantaca::ApiHelpers

@@ -26,9 +26,7 @@ module Vantaca
 
       raise Vantaca::NotFoundError unless response
 
-      response.dig(0, 'owners').map do |owner_data|
-        Vantaca::Models::Owner.new(owner_data)
-      end
+      response.dig(0, 'owners').map { Vantaca::Models::Owner.new(_1) }
     end
 
     # Loading an owner by their account number doesn't need a community code, since the account numbers are unique.
@@ -37,7 +35,7 @@ module Vantaca
     # @option opts [Symbol, Array<Symbol>] :include Include additional information, using keys from OWNER_PARAMETERS
     # @return [Vantaca::Models::Owner] a list of all current and former owners in this community.
     def account_owner(account, **options)
-      params = owner_parameters(nil, options).merge(account: account)
+      params = owner_parameters(nil, options).merge(account:)
 
       response = get('/Read/Association', **params)
 
@@ -59,9 +57,7 @@ module Vantaca
 
       raise Vantaca::NotFoundError unless response
 
-      response.dig(0, 'owners').map do |owner_data|
-        Vantaca::Models::Owner.new(owner_data)
-      end
+      response.dig(0, 'owners').map { Vantaca::Models::Owner.new(_1) }
     end
 
     # Load a specific homeowner - this currently loads only the first owner record, even if the owner has multiple

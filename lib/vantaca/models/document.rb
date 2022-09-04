@@ -9,21 +9,13 @@ module Vantaca
     class Document < Base
       SECURITY_LEVELS = %w[Public Homeowners Board Staff].freeze
 
-      def id
-        data['imgID']
-      end
+      def id = data['imgID']
 
-      def name
-        data['docName']
-      end
+      def name = data['docName']
 
-      def folder_path
-        data['folderPath']
-      end
+      def folder_path = data['folderPath']
 
-      def security_id
-        data['securityID']
-      end
+      def security_id = data['securityID']
     end
   end
 end

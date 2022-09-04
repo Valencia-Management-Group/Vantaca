@@ -30,7 +30,7 @@ RSpec.describe Vantaca::Providers do
 
       expect(provider).to be_a Vantaca::Models::Provider
       expect(provider.name).to eq "Joe's Plumbing"
-      expect(provider.insurance).to be nil
+      expect(provider.insurance).to be_nil
     end
 
     it 'GETs a specific provider with additional insurance' do

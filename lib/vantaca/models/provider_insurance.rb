@@ -15,30 +15,18 @@ module Vantaca
         @provider = provider
       end
 
-      def id
-        data['providerInsuranceID']
-      end
+      def id = data['providerInsuranceID']
 
-      def type
-        data['insuranceType']
-      end
+      def type = data['insuranceType']
 
-      def account
-        data['accountNo']
-      end
+      def account = data['accountNo']
 
       # For now, I'm going to assume that all insurance records include an expiration date.
-      def expiration_date
-        Time.parse data['expirationDate']
-      end
+      def expiration_date = Time.parse(data['expirationDate'])
 
-      def expired?
-        expiration_date < Time.now
-      end
+      def expired? = expiration_date < Time.now
 
-      def required?
-        @data['isRequired']
-      end
+      def required? = @data['isRequired']
     end
   end
 end
