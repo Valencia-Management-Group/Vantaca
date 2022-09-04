@@ -25,5 +25,13 @@ module Vantaca
 
       @password = input
     end
+
+    def to_params
+      {
+        company: @company,
+        login: @login,
+        pwd: @password
+      }
+    end
   end
 end

@@ -60,13 +60,7 @@ module Vantaca
 
     protected
 
-    def default_params
-      {
-        company: Vantaca.configuration.company,
-        login: Vantaca.configuration.login,
-        pwd: Vantaca.configuration.password
-      }
-    end
+    def default_params = Vantaca.configuration.to_params
 
     def raise_exception(response)
       case response.code
