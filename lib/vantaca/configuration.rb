@@ -6,7 +6,7 @@
 module Vantaca
   # The basic configuration object for the Vantaca client. I wish these weren't passed in the URL...
   class Configuration
-    attr_reader :login, :password, :company
+    attr_reader :login, :password, :company, :logger
 
     def company=(input)
       raise ArgumentError, 'Invalid Vantaca company name' unless input&.match?(/\A\w+\z/)
@@ -24,6 +24,12 @@ module Vantaca
       raise ArgumentError, 'Invalid Vantaca password' unless input&.match?(/\A\w+\z/)
 
       @password = input
+    end
+
+    def logger=(new_logger)
+      raise ArgumentError, 'Logger must be an instance of the Logger class' unless new_logger.is_a?(::Logger)
+
+      @logger = new_logger
     end
 
     def to_params

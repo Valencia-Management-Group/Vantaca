@@ -3,6 +3,8 @@
 # Copyright (c) 2022 Valencia Management Group
 # All rights reserved.
 
+require 'logger'
+
 module Vantaca
   # The client which enables communication with the Vantaca API
   class Client
@@ -19,7 +21,16 @@ module Vantaca
 
     base_uri 'https://vantacaserviceeast.azurewebsites.net/'
 
-    def initialize
+    attr_accessor :logger
+
+    def initialize(logger: IO::NULL)
+      @logger = if logger.is_a?(::Logger)
+                  logger
+                elsif logger == IO::NULL && Vantaca.configuration.logger
+                  Vantaca.configuration.logger
+                else
+                  ::Logger.new(logger)
+                end
     end
 
     def get(endpoint, **query)
