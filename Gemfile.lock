@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    vantaca (0.1.0)
+    vantaca (0.2.0)
       httparty (~> 0.16)
       zeitwerk (~> 2.6)
 
