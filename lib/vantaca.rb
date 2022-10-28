@@ -7,27 +7,10 @@ require 'httparty'
 require 'json'
 require 'tempfile'
 require 'time'
+require 'zeitwerk'
 
-require 'vantaca/errors'
-
-require 'vantaca/addresses'
-require 'vantaca/communities'
-require 'vantaca/documents'
-require 'vantaca/ledger'
-require 'vantaca/owners'
-require 'vantaca/providers'
-
-require 'vantaca/models/base'
-require 'vantaca/models/address'
-require 'vantaca/models/community'
-require 'vantaca/models/document'
-require 'vantaca/models/owner'
-require 'vantaca/models/provider'
-require 'vantaca/models/provider_insurance'
-
-require 'vantaca/configuration'
-require 'vantaca/client'
-require 'vantaca/version'
+loader = Zeitwerk::Loader.for_gem
+loader.setup
 
 # The module we're all here for.
 module Vantaca
