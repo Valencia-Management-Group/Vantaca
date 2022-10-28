@@ -36,7 +36,7 @@ RSpec.describe Vantaca::Communities do
       stub_error_request_for '/Read/Association?assocCode=HEY', with: '204 No Content'
 
       expect { client.community('HEY') }
-        .to raise_exception Vantaca::NotFoundError
+        .to raise_exception Vantaca::Errors::NotFoundError
     end
   end
 end

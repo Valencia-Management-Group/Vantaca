@@ -75,18 +75,18 @@ module Vantaca
 
     def raise_exception(response)
       case response.code
-      when 404 then raise Vantaca::NotFoundError, response
-      when 400..499 then raise Vantaca::ClientError, response
+      when 404 then raise Vantaca::Errors::NotFoundError, response
+      when 400..499 then raise Vantaca::Errors::ClientError, response
       when 500..599
         message = response.response.code[4..]
 
         # These errors can largely be ignored - it's not our fault
-        raise Vantaca::TimeoutError, response if message['Timeout expired']
+        raise Vantaca::Errors::TimeoutError, response if message['Timeout expired']
 
-        raise Vantaca::InternalError, response
+        raise Vantaca::Errors::InternalError, response
       else
         # As far as I'm aware, Vantaca does not return 100 - 199 or 205 - 399.
-        raise Vantaca::ApiError, response
+        raise Vantaca::Errors::ApiError, response
       end
     end
 

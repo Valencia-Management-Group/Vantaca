@@ -15,7 +15,7 @@ module Vantaca
     def providers(**options)
       response = get('/Read/Provider', **provider_parameters(options))
 
-      raise Vantaca::NotFoundError unless response
+      raise Vantaca::Errors::NotFoundError unless response
 
       response.map { Vantaca::Models::Provider.new(_1) }
     end
@@ -29,8 +29,8 @@ module Vantaca
       response = get('/Read/ProviderSingle', **provider_parameters(options).merge(providerID: id))
 
       Vantaca::Models::Provider.new response
-    rescue Vantaca::ApiError
-      raise Vantaca::NotFoundError
+    rescue Vantaca::Errors::ApiError
+      raise Vantaca::Errors::NotFoundError
     end
 
     protected

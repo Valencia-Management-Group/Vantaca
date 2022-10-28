@@ -24,7 +24,7 @@ module Vantaca
 
       response = get('/Read/Association', **params)
 
-      raise Vantaca::NotFoundError unless response
+      raise Vantaca::Errors::NotFoundError unless response
 
       response.dig(0, 'owners').map { Vantaca::Models::Owner.new(_1) }
     end
@@ -39,7 +39,7 @@ module Vantaca
 
       response = get('/Read/Association', **params)
 
-      raise Vantaca::NotFoundError unless response
+      raise Vantaca::Errors::NotFoundError unless response
 
       Vantaca::Models::Owner.new response.dig(0, 'owners', 0)
     end
@@ -55,7 +55,7 @@ module Vantaca
 
       response = get('/Read/Association', **params)
 
-      raise Vantaca::NotFoundError unless response
+      raise Vantaca::Errors::NotFoundError unless response
 
       response.dig(0, 'owners').map { Vantaca::Models::Owner.new(_1) }
     end
@@ -72,7 +72,7 @@ module Vantaca
 
       response = get('/Read/Association', **params)
 
-      raise Vantaca::NotFoundError unless response
+      raise Vantaca::Errors::NotFoundError unless response
 
       Vantaca::Models::Owner.new response.dig(0, 'owners', 0)
     end
@@ -81,7 +81,7 @@ module Vantaca
     def communication_preferences(owner_id)
       response = get('/Read/GetCommPreference', hoID: owner_id)
 
-      raise Vantaca::NotFoundError unless response
+      raise Vantaca::Errors::NotFoundError unless response
 
       {
         communication: response['commpref'],
