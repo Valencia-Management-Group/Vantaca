@@ -13,12 +13,13 @@ Gem::Specification.new do |spec|
   spec.authors = ['Steven Hoffman']
   spec.email = ['shoffman@valenciamgmt.com']
   spec.required_ruby_version = '>= 3.1.0'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 
   spec.summary = %(Vantaca API)
   spec.homepage = 'http://github.com/ValenciaMgmt/Vantaca'
   spec.license = 'MIT'
 
-  spec.files = `git ls-files -z`.split("\x0").reject { _1.match(%r{^(test|spec|features)/}) }
+  spec.files = `git ls-files -z`.split("\x0").reject { _1.match(%r{^spec/}) }
   spec.bindir = 'exe'
   spec.executables = []
   spec.require_paths = ['lib']
@@ -33,6 +34,4 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'httparty', '~> 0.16'
   spec.add_dependency 'zeitwerk', '~> 2.6'
-
-  spec.metadata['rubygems_mfa_required'] = 'true'
 end
