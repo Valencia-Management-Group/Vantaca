@@ -3,8 +3,8 @@
 # Copyright (c) 2022 Valencia Management Group
 # All rights reserved.
 
-require 'webmock/rspec'
 require 'vantaca'
+require 'webmock/rspec'
 require 'yaml'
 
 require_relative 'support/api_helpers'
