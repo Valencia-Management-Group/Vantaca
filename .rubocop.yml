@@ -39,9 +39,9 @@ Metrics/BlockLength:
 
 Style/Copyright:
   AutocorrectNotice: |
-    # Copyright (c) 2022 Valencia Management Group
+    # Copyright (c) Valencia Management Group
     # All rights reserved.
-  Notice: '^# Copyright (\(c\) )?2[0-9]{3} .+'
+  Notice: '^# Copyright \(c\) Valencia Management Group$'
 
 # ------------------------------------------------------------------------------
 # Cops that should not be run
