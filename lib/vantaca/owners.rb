@@ -98,11 +98,9 @@ module Vantaca
     def update_communication_preferences(owner_id, communication: nil, billing: nil)
       raise ArgumentError, 'At least communication or billing must be passed.' unless communication || billing
 
-      params = { hoid: owner_id }
-      params[:commpref] = communication if communication
-      params[:billingpref] = billing if billing
+      params = { hoid: owner_id, commpref: communication, billingpref: billing }
 
-      post('/Write/commPrefUpdate', params)
+      post('/Write/commPrefUpdate', params.compact)
 
       true
     end
@@ -110,15 +108,13 @@ module Vantaca
     protected
 
     def owner_parameters(community, options)
-      params = { includeOwners: true }
-
-      params[:assocCode] = community if community
+      params = { includeOwners: true, assocCode: community }
 
       OWNER_PARAMETERS.values_at(*Array(options[:include])).compact.each do |vantaca_parameter|
         params[vantaca_parameter] = true
       end
 
-      params
+      params.compact
     end
   end
 end
