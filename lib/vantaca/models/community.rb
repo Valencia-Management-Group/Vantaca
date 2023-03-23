@@ -12,6 +12,10 @@ module Vantaca
       def name = data['assocName']
 
       def tax_id = data['taxID']
+
+      def charges = data['charges'] || []
+
+      def late_fees = data['lateFees'] || []
     end
   end
 end
