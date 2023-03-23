@@ -30,7 +30,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 1.48'
   spec.add_development_dependency 'rubocop-rake', '~> 0.6'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.19'
-  spec.add_development_dependency 'ruby-lsp', '~> 0.3.8'
   spec.add_development_dependency 'webmock', '~> 3.18'
 
   spec.add_dependency 'httparty', '~> 0.21'
