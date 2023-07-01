@@ -6,3 +6,24 @@
 source 'https://rubygems.org'
 
 gemspec
+
+# Gem management
+gem 'bundler', '~> 2.4'
+
+# Deployment tasks
+gem 'rake', '~> 13.0'
+
+# Test with RSpec
+gem 'rspec', '~> 3.12'
+
+# Ruby code linting
+gem 'rubocop', '~> 1.54'
+
+# Rubocop - rake cops
+gem 'rubocop-rake', '~> 0.6'
+
+# Rubocop - rspec cops
+gem 'rubocop-rspec', '~> 2.22'
+
+# Mock HTTP requests so that we're not hitting the actual Vantaca servers
+gem 'webmock', '~> 3.18'

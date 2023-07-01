@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.version = Vantaca::VERSION
   spec.authors = ['Steven Hoffman']
   spec.email = ['shoffman@valenciamgmt.com']
-  spec.required_ruby_version = '>= 3.1.0'
+  spec.required_ruby_version = '>= 3.2.0'
   spec.metadata['rubygems_mfa_required'] = 'true'
 
   spec.summary = %(Vantaca API)
@@ -23,14 +23,6 @@ Gem::Specification.new do |spec|
   spec.bindir = 'exe'
   spec.executables = []
   spec.require_paths = ['lib']
-
-  spec.add_development_dependency 'bundler', '> 1.16'
-  spec.add_development_dependency 'rake', '> 10.0'
-  spec.add_development_dependency 'rspec', '~> 3.12'
-  spec.add_development_dependency 'rubocop', '~> 1.48'
-  spec.add_development_dependency 'rubocop-rake', '~> 0.6'
-  spec.add_development_dependency 'rubocop-rspec', '~> 2.19'
-  spec.add_development_dependency 'webmock', '~> 3.18'
 
   spec.add_dependency 'httparty', '~> 0.21'
   spec.add_dependency 'zeitwerk', '~> 2.6'
