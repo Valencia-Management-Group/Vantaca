@@ -54,7 +54,7 @@ module Vantaca
 
       return File.open(response[:file]), 200 unless response[:file].end_with?('.yml')
 
-      data = YAML.safe_load(File.read(response[:file]))
+      data = YAML.safe_load_file(response[:file])
 
       [JSON.dump(data['body']), data['status']]
     end
