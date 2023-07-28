@@ -21,25 +21,10 @@ module Vantaca
         format(
           '%<code>s: %<message>s (%<uri>s)',
           code: @response.code,
-          message: error_messages.join("\n"),
+          # Vantaca doesn't put the error message in the response body - it's in the status header!
+          message: @response.response.message,
           uri: filtered_uri
         )
-      end
-
-      # Vantaca doesn't put the error message in the response body - it's in the status header!
-      def error_messages
-        [@response.response.code[4..]]
-
-        # return [self.class::DEFAULT_MESSAGE] unless @response&.body
-
-        # case parsed_response = @response.parsed_response
-        # when String
-        #   [parsed_response]
-        # when Array
-        #   parsed_response
-        # else
-        #   [@response.body]
-        # end
       end
 
       def filtered_uri = @response.request.last_uri.to_s.gsub(/(company|login|pwd)=(?:[a-z0-9]+)/i, '\1=[FILTERED]')
