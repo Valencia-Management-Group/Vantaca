@@ -6,7 +6,6 @@
 require 'vantaca'
 require 'vcr'
 require 'webmock/rspec'
-require 'yaml'
 
 require_relative 'support/api_helpers'
 
