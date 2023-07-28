@@ -78,10 +78,8 @@ module Vantaca
       when 404 then raise Vantaca::Errors::NotFoundError, response
       when 400..499 then raise Vantaca::Errors::ClientError, response
       when 500..599
-        # message = response.response.code[4..]
-
         # These errors can largely be ignored - it's not our fault
-        # raise Vantaca::Errors::TimeoutError, response if message['Timeout expired']
+        raise Vantaca::Errors::TimeoutError, response if response.response.message['Timeout expired']
 
         raise Vantaca::Errors::InternalError, response
       else

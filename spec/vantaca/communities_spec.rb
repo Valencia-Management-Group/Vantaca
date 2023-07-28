@@ -11,9 +11,7 @@ RSpec.describe Vantaca::Communities do
   let(:client) { Vantaca::Client.new }
 
   describe '#communities' do
-    it 'GETs a list of communities' do
-      stub_request_for '/Read/Association', with: 'communities/all_communities'
-
+    it 'GETs a list of communities', vcr: 'communities/all' do
       communities = client.communities
 
       expect(communities).to be_a Array
@@ -23,18 +21,14 @@ RSpec.describe Vantaca::Communities do
   end
 
   describe '#community' do
-    it 'GETs a single community' do
-      stub_request_for '/Read/Association?assocCode=TEST', with: 'communities/single'
-
+    it 'GETs a single community', vcr: 'communities/single' do
       community = client.community('TEST')
 
       expect(community).to be_a Vantaca::Models::Community
       expect(community.name).to eq 'VMG Testing Sandbox'
     end
 
-    it 'raises an exception when a community does not exist' do
-      stub_error_request_for '/Read/Association?assocCode=HEY', with: '204 No Content'
-
+    it 'raises an exception when a community does not exist', vcr: 'communities/not_found' do
       expect { client.community('HEY') }
         .to raise_exception Vantaca::Errors::NotFoundError
     end

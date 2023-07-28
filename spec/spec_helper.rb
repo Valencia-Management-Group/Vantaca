@@ -4,11 +4,11 @@
 # All rights reserved.
 
 require 'vantaca'
+require 'vcr'
 require 'webmock/rspec'
 require 'yaml'
 
 require_relative 'support/api_helpers'
-require_relative 'support/stubbed_endpoints'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -29,18 +29,14 @@ RSpec.configure do |config|
 
   Kernel.srand config.seed
 
-  config.before do
-    Vantaca::StubbedEndpoints.reset!
-
-    # This has to be a regex to match with the basic authentication in the URL
-    WebMock.stub_request(:any, /vantacaserviceeast\.azurewebsites\.net/)
-      .to_return { Vantaca::StubbedEndpoints.stubbed_get_response(_1) }
-  end
-
   config.include Vantaca::ApiHelpers
-  config.include Vantaca::StubbedEndpoints
 end
 
-# We never want to actually hit the API. All data should be stored in the data
-# directory, and new data can be found through the Postman client.
+VCR.configure do |vcr|
+  vcr.cassette_library_dir = 'spec/cassettes'
+  vcr.configure_rspec_metadata!
+  vcr.hook_into :webmock
+end
+
+# We never want to actually hit the API; all data should be stored in cassettes.
 WebMock.disable_net_connect!

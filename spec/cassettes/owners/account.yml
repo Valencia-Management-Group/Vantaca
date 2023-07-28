@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://vantacaserviceeast.azurewebsites.net/Read/Association?account=99910086&company=Vantaca&includeOwners=true&login=admin&pwd=abc123
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '342'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 28 Jul 2023 18:04:57 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - ARRAffinity=86c2044f524e2163074e8dc75723a091c7a7f340616cbda71aa2a2543766df32;Path=/;HttpOnly;Secure;Domain=vantacaserviceeast.azurewebsites.net
+      - ARRAffinitySameSite=86c2044f524e2163074e8dc75723a091c7a7f340616cbda71aa2a2543766df32;Path=/;HttpOnly;SameSite=None;Secure;Domain=vantacaserviceeast.azurewebsites.net
+      - TiPMix=41.46886032511634; path=/; HttpOnly; Domain=vantacaserviceeast.azurewebsites.net;
+        Max-Age=3600; Secure; SameSite=None
+      - x-ms-routing-name=self; path=/; HttpOnly; Domain=vantacaserviceeast.azurewebsites.net;
+        Max-Age=3600; Secure; SameSite=None
+      X-Aspnet-Version:
+      - 4.0.30319
+      Request-Context:
+      - appId=cid-v1:9551abf1-b1e7-459b-a005-25e50dbcbd2d
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: >
+        [{"assocCode":"999","assocName":"Presidential Valley","type":"HOA","taxID":"","address1":"27644 Newhall Ranch Rd #45","address2":"","city":"Valencia","state":"CA","zip":"91355","charges":null,"lateFees":null,"documents":null,"owners":[{"propertyID":10082,"hoid":10086,"accountNo":"99910086","streetNo":8765,"address":"8765 Washington Rd","address1":"Washington Rd","address2":"","unitNo":"","city":"Wilmington","state":"NC","zip":"28405","lot":"","block":"","phase":"","village":"","settleDate":null,"previousOwner":null,"collectionStatus":"","hoName":"John F. Kennedy ","FirstName":"John F. Kennedy","LastName":"","SpouseFirstName":"","SpouseLastName":"","BusinessName":"","mailingAddressType":"PropertyAddress","mailingAddressID":10082,"hasPaymentPlan":false,"balance":100,"overallBalance":100,"addresses":[],"phones":[],"emails":[{"emailID":107,"isPrimary":true,"label":"","email":"JFK12345@whitehouseprez.com"}],"transactions":null,"chargeTransactions":null,"bkList":null}]}]
+  recorded_at: Fri, 28 Jul 2023 18:04:55 GMT
+recorded_with: VCR 6.2.0

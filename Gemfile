@@ -25,5 +25,8 @@ gem 'rubocop-rake', '~> 0.6'
 # Rubocop - rspec cops
 gem 'rubocop-rspec', '~> 2.22'
 
+# Replay full HTTP interactions
+gem 'vcr', '~> 6.2'
+
 # Mock HTTP requests so that we're not hitting the actual Vantaca servers
 gem 'webmock', '~> 3.18'

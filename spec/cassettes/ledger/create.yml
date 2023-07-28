@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://vantacaserviceeast.azurewebsites.net/Write/CreateLedger?Descr=test%20fine&account=BC13506&amount=4.99&assocChgID=667&company=Vantaca&ledgerDate=2020-10-05&login=admin&pwd=abc123&type=Charge
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Fri, 28 Jul 2023 18:04:57 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - ARRAffinity=86c2044f524e2163074e8dc75723a091c7a7f340616cbda71aa2a2543766df32;Path=/;HttpOnly;Secure;Domain=vantacaserviceeast.azurewebsites.net
+      - ARRAffinitySameSite=86c2044f524e2163074e8dc75723a091c7a7f340616cbda71aa2a2543766df32;Path=/;HttpOnly;SameSite=None;Secure;Domain=vantacaserviceeast.azurewebsites.net
+      - TiPMix=41.46886032511634; path=/; HttpOnly; Domain=vantacaserviceeast.azurewebsites.net;
+        Max-Age=3600; Secure; SameSite=None
+      - x-ms-routing-name=self; path=/; HttpOnly; Domain=vantacaserviceeast.azurewebsites.net;
+        Max-Age=3600; Secure; SameSite=None
+      X-Aspnet-Version:
+      - 4.0.30319
+      Request-Context:
+      - appId=cid-v1:9551abf1-b1e7-459b-a005-25e50dbcbd2d
+      X-Powered-By:
+      - ASP.NET
+  recorded_at: Fri, 28 Jul 2023 18:04:55 GMT
+recorded_with: VCR 6.2.0

@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://vantacaserviceeast.azurewebsites.net/Read/ProviderSingle?company=Vantaca&includeInsurance=true&login=admin&providerID=123&pwd=abc123
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '342'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 28 Jul 2023 18:04:57 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - ARRAffinity=86c2044f524e2163074e8dc75723a091c7a7f340616cbda71aa2a2543766df32;Path=/;HttpOnly;Secure;Domain=vantacaserviceeast.azurewebsites.net
+      - ARRAffinitySameSite=86c2044f524e2163074e8dc75723a091c7a7f340616cbda71aa2a2543766df32;Path=/;HttpOnly;SameSite=None;Secure;Domain=vantacaserviceeast.azurewebsites.net
+      - TiPMix=41.46886032511634; path=/; HttpOnly; Domain=vantacaserviceeast.azurewebsites.net;
+        Max-Age=3600; Secure; SameSite=None
+      - x-ms-routing-name=self; path=/; HttpOnly; Domain=vantacaserviceeast.azurewebsites.net;
+        Max-Age=3600; Secure; SameSite=None
+      X-Aspnet-Version:
+      - 4.0.30319
+      Request-Context:
+      - appId=cid-v1:9551abf1-b1e7-459b-a005-25e50dbcbd2d
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: >
+        {"providerID":123,"name":"Joe's Plumbing","address":"456 Main Street","unit":"Suite 12","city":"Valencia","state":"CA","zip":91355,"email":"joe@valenciamgmt.com","phone":"(555) 123-4567","fax":"","taxID":"","onHold":false,"onHoldReason":"","compliant":true,"complianceStatus":"Approved","complianceGroup":"","providerInsurance":[{"providerInsuranceID":1,"providerID":123,"insuranceType":"Auto-Liability","accountNo":333333333,"expirationDate":"2022-03-25T04:00:00","isRequired":false},{"providerInsuranceID":2,"providerID":123,"insuranceType":"Worker's Comp","accountNo":"CST2222222","expirationDate":"2022-03-25T04:00:00","isRequired":false},{"providerInsuranceID":3,"providerID":123,"insuranceType":"General Liability","accountNo":"E111111","expirationDate":"2022-04-25T04:00:00","isRequired":false}]}
+  recorded_at: Fri, 28 Jul 2023 18:04:55 GMT
+recorded_with: VCR 6.2.0

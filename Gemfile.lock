@@ -70,6 +70,7 @@ GEM
       rubocop-factory_bot (~> 2.22)
     ruby-progressbar (1.13.0)
     unicode-display_width (2.4.2)
+    vcr (6.2.0)
     webmock (3.18.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -87,6 +88,7 @@ DEPENDENCIES
   rubocop-rake (~> 0.6)
   rubocop-rspec (~> 2.22)
   vantaca!
+  vcr (~> 6.2)
   webmock (~> 3.18)
 
 BUNDLED WITH

@@ -11,13 +11,7 @@ RSpec.describe Vantaca::Ledger do
   let(:client) { Vantaca::Client.new }
 
   describe '#create_ledger_entry' do
-    it 'Creates a ledger entry' do
-      stub_request_for(
-        '/Write/CreateLedger?account=BC13506&type=Charge&assocChgID=667&ledgerDate=2020-10-05&amount=4.99&' \
-        'Descr=test%20fine',
-        with: :blank
-      )
-
+    it 'Creates a ledger entry', vcr: 'ledger/create' do
       response = client.create_ledger_entry(
         'BC13506',
         type: 'Charge',

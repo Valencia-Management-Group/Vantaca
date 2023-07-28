@@ -10,24 +10,18 @@ RSpec.describe Vantaca::Errors do
 
   let(:client) { Vantaca::Client.new }
 
-  it 'properly parses 4xx errors' do
-    stub_error_request_for '/Read/Error', with: '400 Unable to create charge.'
-
+  it 'properly parses 4xx errors', vcr: 'errors/400' do
     expect { client.get('/Read/Error') }
-      .to raise_exception Vantaca::Errors::ClientError, /400: Unable to create charge/
+      .to raise_exception Vantaca::Errors::ClientError, /400: INVALID DATE - The Posting Date MUST be in a valid period/
   end
 
-  it 'properly parses 5xx errors' do
-    stub_error_request_for '/Read/Error', with: '503 Something terrible happened.'
-
+  it 'properly parses 5xx errors', vcr: 'errors/500' do
     expect { client.get('/Read/Error') }
-      .to raise_exception Vantaca::Errors::InternalError, /503: Something terrible happened/
+      .to raise_exception Vantaca::Errors::InternalError, /500: Something terrible happened/
   end
 
-  # it 'properly parses timeout errors' do
-  #   stub_error_request_for '/Read/Error', with: '503 Timeout expired.'
-
-  #   expect { client.get('/Read/Error') }
-  #     .to raise_exception Vantaca::Errors::TimeoutError
-  # end
+  it 'properly parses timeout errors', vcr: 'errors/503' do
+    expect { client.get('/Read/Timeout') }
+      .to raise_exception Vantaca::Errors::TimeoutError
+  end
 end

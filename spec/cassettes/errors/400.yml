@@ -1,0 +1,96 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://vantacaserviceeast.azurewebsites.net/Read/Error?company=Vantaca&login=admin&pwd=abc123
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: INVALID DATE - The Posting Date MUST be in a valid period
+    headers:
+      Content-Length:
+      - '3728'
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Fri, 28 Jul 2023 18:04:57 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Access-Control-Expose-Headers:
+      - Request-Context
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - ARRAffinity=86c2044f524e2163074e8dc75723a091c7a7f340616cbda71aa2a2543766df32;Path=/;HttpOnly;Secure;Domain=vantacaserviceeast.azurewebsites.net
+      - ARRAffinitySameSite=86c2044f524e2163074e8dc75723a091c7a7f340616cbda71aa2a2543766df32;Path=/;HttpOnly;SameSite=None;Secure;Domain=vantacaserviceeast.azurewebsites.net
+      - TiPMix=41.46886032511634; path=/; HttpOnly; Domain=vantacaserviceeast.azurewebsites.net;
+        Max-Age=3600; Secure; SameSite=None
+      - x-ms-routing-name=self; path=/; HttpOnly; Domain=vantacaserviceeast.azurewebsites.net;
+        Max-Age=3600; Secure; SameSite=None
+      X-Aspnet-Version:
+      - 4.0.30319
+      Request-Context:
+      - appId=cid-v1:9551abf1-b1e7-459b-a005-25e50dbcbd2d
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource
+        cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\"
+        />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size:
+        .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top:
+        -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top:
+        -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color:red
+        }\r\n         H2 { font-family:\"Verdana\";font-weight:normal;font-size:14pt;color:maroon
+        }\r\n         pre {font-family:\"Consolas\",\"Lucida Console\",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}\r\n
+        \        .marker {font-weight: bold; color: black;text-decoration: none;}\r\n
+        \        .version {color: gray;}\r\n         .error {margin-bottom: 10px;}\r\n
+        \        .expandable { text-decoration:underline; font-weight:bold; color:navy;
+        cursor:pointer; }\r\n         @media screen and (max-width: 639px) {\r\n          pre
+        { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word;
+        }\r\n         }\r\n         @media screen and (max-width: 479px) {\r\n          pre
+        { width: 280px; }\r\n         }\r\n        </style>\r\n    </head>\r\n\r\n
+        \   <body bgcolor=\"white\">\r\n\r\n            <span><H1>Server Error in
+        '/' Application.<hr width=100% size=1 color=silver></H1>\r\n\r\n            <h2>
+        <i>The resource cannot be found.</i> </h2></span>\r\n\r\n            <font
+        face=\"Arial, Helvetica, Geneva, SunSans-Regular, sans-serif \">\r\n\r\n            <b>
+        Description: </b>HTTP 404. The resource you are looking for (or one of its
+        dependencies) could have been removed, had its name changed, or is temporarily
+        unavailable. &nbsp;Please review the following URL and make sure that it is
+        spelled correctly.\r\n            <br><br>\r\n\r\n            <b> Requested
+        URL: </b>/Read/Error<br><br>\r\n\r\n            <hr width=100% size=1 color=silver>\r\n\r\n
+        \           <b>Version Information:</b>&nbsp;Microsoft .NET Framework Version:4.0.30319;
+        ASP.NET Version:4.8.4494.0\r\n\r\n            </font>\r\n\r\n    </body>\r\n</html>\r\n<!--
+        \r\n[HttpException]: A public action method &#39;Error&#39; was not found
+        on controller &#39;VantacaService.Controllers.ReadController&#39;.\r\n   at
+        System.Web.Mvc.Controller.HandleUnknownAction(String actionName)\r\n   at
+        System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult,
+        ExecuteCoreState innerState)\r\n   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult
+        asyncResult)\r\n   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult
+        asyncResult)\r\n   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult
+        asyncResult)\r\n   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)\r\n
+        \  at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult,
+        ProcessRequestState innerState)\r\n   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult
+        asyncResult)\r\n   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult
+        asyncResult)\r\n   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()\r\n
+        \  at System.Web.HttpApplication.<>c__DisplayClass285_0.<ExecuteStepImpl>b__0()\r\n
+        \  at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)\r\n
+        \  at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&
+        completedSynchronously)\r\n--><!-- \r\nThis error page might contain sensitive
+        information because ASP.NET is configured to show verbose error messages using
+        &lt;customErrors mode=\"Off\"/&gt;. Consider using &lt;customErrors mode=\"On\"/&gt;
+        or &lt;customErrors mode=\"RemoteOnly\"/&gt; in production environments.-->"
+  recorded_at: Fri, 28 Jul 2023 18:04:55 GMT
+recorded_with: VCR 6.2.0

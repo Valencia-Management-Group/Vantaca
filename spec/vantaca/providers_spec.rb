@@ -11,9 +11,7 @@ RSpec.describe Vantaca::Providers do
   let(:client) { Vantaca::Client.new }
 
   describe '#providers' do
-    it 'GETs a list of providers' do
-      stub_request_for '/Read/Provider', with: 'providers/all_providers'
-
+    it 'GETs a list of providers', vcr: 'providers/all' do
       providers = client.providers
 
       expect(providers).to be_a Array
@@ -23,9 +21,7 @@ RSpec.describe Vantaca::Providers do
   end
 
   describe '#provider' do
-    it 'GETs a specific provider' do
-      stub_request_for '/Read/ProviderSingle?providerID=123', with: 'providers/single'
-
+    it 'GETs a specific provider', vcr: 'providers/single' do
       provider = client.provider('123')
 
       expect(provider).to be_a Vantaca::Models::Provider
@@ -33,20 +29,11 @@ RSpec.describe Vantaca::Providers do
       expect(provider.insurance).to be_nil
     end
 
-    it 'GETs a specific provider with additional insurance' do
-      stub_request_for '/Read/ProviderSingle?providerID=123&includeInsurance=true',
-                       with: 'providers/single_with_insurance'
-
+    it 'GETs a specific provider with additional insurance', vcr: 'providers/single_with_insurance' do
       provider = client.provider('123', include: :insurance)
 
       expect(provider).to be_a Vantaca::Models::Provider
       expect(provider.insurance).to be_a Array
     end
   end
-
-  # describe '#property_owners' do
-  # end
-
-  # describe '#owner' do
-  # end
 end
