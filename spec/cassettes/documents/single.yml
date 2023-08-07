@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://vantacaserviceeast.azurewebsites.net/Read/GetDocument?assocCode=999&company=Vantaca&imgID=3537&login=admin&pwd=abc123
+    uri: https://service-e.vantaca.net/Read/GetDocument?assocCode=999&company=Vantaca&imgID=3537&login=admin&pwd=abc123
     body:
       encoding: US-ASCII
       string: ''
@@ -33,11 +33,11 @@ http_interactions:
       Cache-Control:
       - private
       Set-Cookie:
-      - ARRAffinity=86c2044f524e2163074e8dc75723a091c7a7f340616cbda71aa2a2543766df32;Path=/;HttpOnly;Secure;Domain=vantacaserviceeast.azurewebsites.net
-      - ARRAffinitySameSite=86c2044f524e2163074e8dc75723a091c7a7f340616cbda71aa2a2543766df32;Path=/;HttpOnly;SameSite=None;Secure;Domain=vantacaserviceeast.azurewebsites.net
-      - TiPMix=41.46886032511634; path=/; HttpOnly; Domain=vantacaserviceeast.azurewebsites.net;
+      - ARRAffinity=86c2044f524e2163074e8dc75723a091c7a7f340616cbda71aa2a2543766df32;Path=/;HttpOnly;Secure;Domain=service-e.vantaca.net
+      - ARRAffinitySameSite=86c2044f524e2163074e8dc75723a091c7a7f340616cbda71aa2a2543766df32;Path=/;HttpOnly;SameSite=None;Secure;Domain=service-e.vantaca.net
+      - TiPMix=41.46886032511634; path=/; HttpOnly; Domain=service-e.vantaca.net;
         Max-Age=3600; Secure; SameSite=None
-      - x-ms-routing-name=self; path=/; HttpOnly; Domain=vantacaserviceeast.azurewebsites.net;
+      - x-ms-routing-name=self; path=/; HttpOnly; Domain=service-e.vantaca.net;
         Max-Age=3600; Secure; SameSite=None
       X-Aspnet-Version:
       - 4.0.30319

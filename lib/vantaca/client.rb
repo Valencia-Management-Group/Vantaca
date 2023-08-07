@@ -19,7 +19,7 @@ module Vantaca
 
     headers 'Content-Type' => 'application/json'
 
-    base_uri 'https://vantacaserviceeast.azurewebsites.net/'
+    base_uri 'https://service-e.vantaca.net/'
 
     attr_accessor :logger
 
