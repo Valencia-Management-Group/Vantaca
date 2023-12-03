@@ -15,7 +15,7 @@ RSpec.describe Vantaca::Communities do
       communities = client.communities
 
       expect(communities).to be_a Array
-      expect(communities[0]).to be_a Vantaca::Models::Community
+      expect(communities.first).to be_a Vantaca::Models::Community
       expect(communities.length).to be 2
     end
   end

@@ -15,7 +15,7 @@ RSpec.describe Vantaca::Owners do
       communities = client.community_owners(999)
 
       expect(communities).to be_a Array
-      expect(communities[0]).to be_a Vantaca::Models::Owner
+      expect(communities.first).to be_a Vantaca::Models::Owner
       expect(communities.length).to be 50
     end
   end

@@ -15,7 +15,7 @@ RSpec.describe Vantaca::Providers do
       providers = client.providers
 
       expect(providers).to be_a Array
-      expect(providers[0]).to be_a Vantaca::Models::Provider
+      expect(providers.first).to be_a Vantaca::Models::Provider
       expect(providers.length).to be 3
     end
   end

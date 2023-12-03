@@ -29,7 +29,7 @@ module Vantaca
       # The API sends a 204 No Content response if there's no matching community.
       raise Vantaca::Errors::NotFoundError unless response
 
-      Vantaca::Models::Community.new response[0]
+      Vantaca::Models::Community.new response.first
     end
 
     protected
