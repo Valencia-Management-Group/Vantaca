@@ -57,13 +57,13 @@ module Vantaca
       response.parsed_response
     end
 
-    def download(endpoint, **)
+    def download(endpoint, **params)
       raise ArgumentError, 'Vantaca::Client#download requires a block' unless block_given?
 
       Tempfile.open('download') do |file|
         file.binmode
 
-        file.write download_raw_data(endpoint, **)
+        file.write download_raw_data(endpoint, **params)
 
         yield file
       end
