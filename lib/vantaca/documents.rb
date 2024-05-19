@@ -16,10 +16,10 @@ module Vantaca
 
     # Download an actual file
     # TODO: Add the zip=true parameter and unzip the file using Rubyzip
-    def document(community:, image_id:, &block)
+    def document(community:, image_id:, &)
       raise ArgumentError, 'Vantaca::Client#document requires a block' unless block_given?
 
-      download('/Read/GetDocument', assocCode: community, imgID: image_id, &block)
+      download('/Read/GetDocument', assocCode: community, imgID: image_id, &)
     end
   end
 end
