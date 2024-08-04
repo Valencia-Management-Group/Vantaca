@@ -23,7 +23,7 @@ gem 'rubocop', '~> 1.54'
 gem 'rubocop-rake', '~> 0.6'
 
 # Rubocop - rspec cops
-gem 'rubocop-rspec', '~> 2.22'
+gem 'rubocop-rspec', '~> 3.0'
 
 # Replay full HTTP interactions
 gem 'vcr', '~> 6.2'

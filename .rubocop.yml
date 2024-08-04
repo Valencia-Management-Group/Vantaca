@@ -41,7 +41,9 @@ Style/Copyright:
   AutocorrectNotice: |
     # Copyright (c) Valencia Management Group
     # All rights reserved.
-  Notice: '^# Copyright \(c\) Valencia Management Group$'
+  Notice: |
+    Copyright \(c\) Valencia Management Group
+    All rights reserved.
 
 # ------------------------------------------------------------------------------
 # Cops that should not be run
