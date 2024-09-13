@@ -34,9 +34,9 @@ module Vantaca
       def fax = @data['fax']
 
       def insurance
-        return unless @data['providerInsurance']
+        return unless @data['ProviderInsurance']
 
-        @insurance ||= @data['providerInsurance'].map { Vantaca::Models::ProviderInsurance.new(_1, provider: self) }
+        @insurance ||= @data['ProviderInsurance'].map { Vantaca::Models::ProviderInsurance.new(_1, provider: self) }
       end
     end
   end
