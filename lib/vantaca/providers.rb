@@ -26,7 +26,7 @@ module Vantaca
     # @option opts [Symbol, Array<Symbol>] :include Include additional information, using keys from PROVIDER_PARAMETERS
     # @return [Vantaca::Models::Provider] a single provider record
     def provider(id, **options)
-      response = get('/Read/ProviderSingle', **provider_parameters(options).merge(providerID: id))
+      response = get('/Read/ProviderSingle', **provider_parameters(options), providerID: id)
 
       Vantaca::Models::Provider.new response
     rescue Vantaca::Errors::ApiError

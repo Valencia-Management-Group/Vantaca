@@ -24,13 +24,7 @@ module Vantaca
     attr_accessor :logger
 
     def initialize(logger: IO::NULL)
-      @logger = if logger.is_a?(::Logger)
-                  logger
-                elsif logger == IO::NULL && Vantaca.configuration.logger
-                  Vantaca.configuration.logger
-                else
-                  ::Logger.new(logger)
-                end
+      @logger = logger_for(logger)
     end
 
     def get(endpoint, **query)
@@ -98,6 +92,14 @@ module Vantaca
       raise_exception(response) unless response.code == 200
 
       response
+    end
+
+    def logger_for(logger)
+      return logger if logger.is_a?(::Logger)
+
+      return Vantaca.configuration.logger if logger == IO::NULL && Vantaca.configuration.logger
+
+      ::Logger.new(logger)
     end
   end
 end

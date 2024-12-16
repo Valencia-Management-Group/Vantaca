@@ -49,14 +49,6 @@ Style/Copyright:
 # Cops that should not be run
 # ------------------------------------------------------------------------------
 
-# Recommends each array item be on its own line.
-Layout/MultilineArrayLineBreaks:
-  Enabled: false
-
-# Recommends right hand side of multi-line assignment be on a new line
-Layout/MultilineAssignmentLayout:
-  Enabled: false
-
 Layout/MultilineMethodArgumentLineBreaks:
   Enabled: false
 
@@ -68,10 +60,6 @@ Lint/ConstantResolution:
 Lint/NumberConversion:
   Enabled: false
 
-# Converts if-elsif to case-when.
-Style/CaseLikeIf:
-  Enabled: false
-
 Style/ConstantVisibility:
   Enabled: false
 
@@ -79,20 +67,11 @@ Style/ConstantVisibility:
 Style/DocumentationMethod:
   Enabled: false
 
-# Converts [1, 2, three: 3] to [1, 2, { three: 3 }]
-Style/HashAsLastArrayItem:
-  Enabled: false
-
-Style/MethodCalledOnDoEndBlock:
-  Enabled: false
-
-# Converts `a_method 1` to `a_method(1)`
+# Converts `.to eq 1` to `.to(eq(1))`
 Style/MethodCallWithArgsParentheses:
   Enabled: false
 
-Style/MissingElse:
-  Enabled: false
-
+# This is just for setting HTTParty's request headers
 Style/StringHashKeys:
   Enabled: false
 
