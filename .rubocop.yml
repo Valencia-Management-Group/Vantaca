@@ -8,28 +8,6 @@ AllCops:
   NewCops: enable
 
 # ------------------------------------------------------------------------------
-# Coding Style
-# ------------------------------------------------------------------------------
-
-Layout/FirstArrayElementIndentation:
-  EnforcedStyle: consistent
-
-Layout/FirstHashElementIndentation:
-  EnforcedStyle: consistent
-
-Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
-
-Layout/MultilineMethodCallBraceLayout:
-  EnforcedStyle: new_line
-
-Lint/SuppressedException:
-  AllowComments: true
-
-Style/EmptyMethod:
-  EnforcedStyle: expanded
-
-# ------------------------------------------------------------------------------
 # Cops excluded for specific directories
 # ------------------------------------------------------------------------------
 
