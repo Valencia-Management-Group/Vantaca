@@ -25,6 +25,7 @@ module Vantaca
     # @param id [String] the internal Vantaca ID of a provider
     # @option opts [Symbol, Array<Symbol>] :include Include additional information, using keys from PROVIDER_PARAMETERS
     # @return [Vantaca::Models::Provider] a single provider record
+    # @raise [Vantaca::Errors::NotFoundError] if the provider does not exist
     def provider(id, **options)
       response = get('/Read/ProviderSingle', **provider_parameters(options), providerID: id)
 
