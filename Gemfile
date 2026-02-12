@@ -8,7 +8,7 @@ source 'https://rubygems.org'
 gemspec
 
 # Gem management
-gem 'bundler', '~> 2.4'
+gem 'bundler', '~> 4.0'
 
 # Deployment tasks
 gem 'rake', '~> 13.0'
@@ -30,3 +30,6 @@ gem 'vcr', '~> 6.2'
 
 # Mock HTTP requests so that we're not hitting the actual Vantaca servers
 gem 'webmock', '~> 3.18'
+
+# Output logging
+gem 'logger', '~> 1.7'
