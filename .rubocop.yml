@@ -2,7 +2,7 @@ plugins:
   - rubocop-rake
 
 AllCops:
-  TargetRubyVersion: 3.2
+  TargetRubyVersion: 4.0
   # Always enable new cops, disabling manually when they don't fit.
   EnabledByDefault: true
   NewCops: enable

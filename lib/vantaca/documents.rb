@@ -11,7 +11,7 @@ module Vantaca
 
       return [] unless response
 
-      response.dig(0, 'documents').map { Vantaca::Models::Document.new(_1) }
+      response.dig(0, 'documents').map { Vantaca::Models::Document.new(it) }
     end
 
     # Download an actual file

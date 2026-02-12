@@ -16,18 +16,18 @@ module Vantaca
       def in_collections? = data['collectionStatus'] != ''
 
       def addresses
-        @addresses ||= data['addresses'].map { Vantaca::Models::Address.new(_1, owner: self) }
+        @addresses ||= data['addresses'].map { Vantaca::Models::Address.new(it, owner: self) }
       end
 
       def offsite? = data['mailingAddressType'] == 'OffSiteMailingAddress'
 
       # This is the *primary* mailing address, if different from the property address
-      def offsite_mailing_address = (addresses.find { _1.id == data['mailingAddressID'] } if offsite?)
+      def offsite_mailing_address = (addresses.find { it.id == data['mailingAddressID'] } if offsite?)
 
       def alternate_mailing_addresses
         primary_offsite_address_id = offsite? ? data['mailingAddressID'] : nil
 
-        addresses.select { _1.mailing? && _1.id != primary_offsite_address_id }
+        addresses.select { it.mailing? && it.id != primary_offsite_address_id }
       end
 
       def move_in_date = (Time.parse data['settleDate'] if data['settleDate'])

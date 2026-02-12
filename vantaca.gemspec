@@ -13,14 +13,14 @@ Gem::Specification.new do |spec|
   spec.version = Vantaca::VERSION
   spec.authors = ['Steven Hoffman']
   spec.email = ['shoffman@valenciamgmt.com']
-  spec.required_ruby_version = '>= 3.2.0'
+  spec.required_ruby_version = '>= 4.0.0'
   spec.metadata['rubygems_mfa_required'] = 'true'
 
   spec.summary = %(Vantaca API)
   spec.homepage = 'http://github.com/ValenciaMgmt/Vantaca'
   spec.license = 'MIT'
 
-  spec.files = `git ls-files -z`.split("\x0").reject { _1.match(%r{^spec/}) }
+  spec.files = `git ls-files -z`.split("\x0").reject { it.match(%r{^spec/}) }
   spec.bindir = 'exe'
   spec.executables = []
   spec.require_paths = ['lib']

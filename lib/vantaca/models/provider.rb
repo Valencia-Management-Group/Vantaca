@@ -51,7 +51,7 @@ module Vantaca
       def insurance
         return unless @data['providerInsurance']
 
-        @insurance ||= @data['providerInsurance'].map { Vantaca::Models::ProviderInsurance.new(_1, provider: self) }
+        @insurance ||= @data['providerInsurance'].map { Vantaca::Models::ProviderInsurance.new(it, provider: self) }
       end
     end
   end

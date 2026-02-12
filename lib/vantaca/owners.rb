@@ -26,7 +26,7 @@ module Vantaca
 
       raise Vantaca::Errors::NotFoundError unless response
 
-      response.dig(0, 'owners').map { Vantaca::Models::Owner.new(_1) }
+      response.dig(0, 'owners').map { Vantaca::Models::Owner.new(it) }
     end
 
     # Loading an owner by their account number doesn't need a community code, since the account numbers are unique.
@@ -57,7 +57,7 @@ module Vantaca
 
       raise Vantaca::Errors::NotFoundError unless response
 
-      response.dig(0, 'owners').map { Vantaca::Models::Owner.new(_1) }
+      response.dig(0, 'owners').map { Vantaca::Models::Owner.new(it) }
     end
 
     # Load a specific homeowner - this currently loads only the first owner record, even if the owner has multiple

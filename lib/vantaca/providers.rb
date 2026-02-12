@@ -17,7 +17,7 @@ module Vantaca
 
       raise Vantaca::Errors::NotFoundError unless response
 
-      response.map { Vantaca::Models::Provider.new(_1) }
+      response.map { Vantaca::Models::Provider.new(it) }
     end
 
     # Load a single provider by their internal Vantaca ID.

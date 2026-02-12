@@ -14,7 +14,7 @@ module Vantaca
     def communities(**options)
       params = community_parameters(nil, options)
 
-      get('/Read/Association', **params).map { Vantaca::Models::Community.new(_1) }
+      get('/Read/Association', **params).map { Vantaca::Models::Community.new(it) }
     end
 
     # Load a single community by its abbreviation.
