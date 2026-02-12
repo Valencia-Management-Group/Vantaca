@@ -90,7 +90,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 4.0)
-  logger (~> 1)
+  logger (~> 1.7)
   rake (~> 13.0)
   rspec (~> 3.12)
   rubocop (~> 1.54)
