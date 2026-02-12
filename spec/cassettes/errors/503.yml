@@ -20,29 +20,14 @@ http_interactions:
       code: 503
       message: Timeout expired.
     headers:
-      Content-Length:
-      - '3728'
       Content-Type:
-      - text/html; charset=utf-8
-      Date:
-      - Fri, 28 Jul 2023 18:04:57 GMT
+      - application/json
       Server:
       - Microsoft-IIS/10.0
-      Access-Control-Expose-Headers:
-      - Request-Context
       Cache-Control:
       - private
-      Set-Cookie:
-      - ARRAffinity=86c2044f524e2163074e8dc75723a091c7a7f340616cbda71aa2a2543766df32;Path=/;HttpOnly;Secure;Domain=service-e.vantaca.net
-      - ARRAffinitySameSite=86c2044f524e2163074e8dc75723a091c7a7f340616cbda71aa2a2543766df32;Path=/;HttpOnly;SameSite=None;Secure;Domain=service-e.vantaca.net
-      - TiPMix=41.46886032511634; path=/; HttpOnly; Domain=service-e.vantaca.net;
-        Max-Age=3600; Secure; SameSite=None
-      - x-ms-routing-name=self; path=/; HttpOnly; Domain=service-e.vantaca.net;
-        Max-Age=3600; Secure; SameSite=None
       X-Aspnet-Version:
       - 4.0.30319
-      Request-Context:
-      - appId=cid-v1:9551abf1-b1e7-459b-a005-25e50dbcbd2d
       X-Powered-By:
       - ASP.NET
     body:
