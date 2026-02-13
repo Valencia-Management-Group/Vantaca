@@ -10,6 +10,7 @@ module Vantaca
   class Client
     include HTTParty
 
+    include Vantaca::ActionItems
     include Vantaca::Addresses
     include Vantaca::Communities
     include Vantaca::Documents

@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://service-e.vantaca.net/Read/actionTypeList?company=Vantaca&login=admin&pwd=abc123
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Server:
+      - Microsoft-IIS/10.0
+      Cache-Control:
+      - private
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: >
+        [
+          {"ActionTypeID":-2,"Descr":"Software Support","ActionCategoryID":0,"Created":"2014-12-22T17:37:24.76","LastModified":"2018-02-15T14:45:58.587"},
+          {"ActionTypeID":2,"Descr":"Bank Return","ActionCategoryID":17,"Created":"2017-09-24T23:07:41.28","LastModified":"2023-03-23T21:48:24.743"},
+          {"ActionTypeID":6,"Descr":"Transfer Funds Error Alert","ActionCategoryID":17,"Created":"2017-09-25T11:57:00.13","LastModified":"2024-12-04T16:36:53.53"},
+          {"ActionTypeID":7,"Descr":"Bankruptcy","ActionCategoryID":15,"Created":"2017-09-25T12:01:07.097","LastModified":"2020-11-04T14:22:02.093"},
+          {"ActionTypeID":8,"Descr":"Collections (3/30 Day)","ActionCategoryID":1,"Created":"2017-09-25T12:24:04.503","LastModified":"2024-08-26T18:07:12.797"},
+          {"ActionTypeID":1001,"Descr":"Generate Portal Login","ActionCategoryID":12,"Created":"2018-02-02T15:22:31.743","LastModified":"2018-02-15T13:46:22.98"},
+          {"ActionTypeID":1002,"Descr":"New Board Portal Login","ActionCategoryID":0,"Created":"2018-02-02T15:28:26.703","LastModified":"2023-07-12T14:53:51.88"},
+          {"ActionTypeID":1003,"Descr":"Generate eStatements","ActionCategoryID":12,"Created":"2018-02-13T17:32:08.98","LastModified":"2018-02-13T17:32:08.98"},
+          {"ActionTypeID":2004,"Descr":"Board Email","ActionCategoryID":0,"Created":"2018-03-29T14:20:58.77","LastModified":"2020-08-31T15:55:45.793"},
+          {"ActionTypeID":2005,"Descr":"Board Task","ActionCategoryID":0,"Created":"2018-03-29T14:27:52.46","LastModified":"2018-03-29T14:27:52.46"},
+          {"ActionTypeID":2007,"Descr":"Bank Payment Notification","ActionCategoryID":17,"Created":"2018-05-17T12:56:44.423","LastModified":"2024-11-19T23:28:26.2"}
+        ]
+  recorded_at: Fri, 28 Jul 2023 18:04:55 GMT
+recorded_with: VCR 6.2.0
+
+
+

@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://service-e.vantaca.net/Read/actionCategoryList?company=Vantaca&login=admin&pwd=abc123
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Server:
+      - Microsoft-IIS/10.0
+      Cache-Control:
+      - private
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: >
+        [
+          {"ActionCategoryID":0,"Descr":"Standard"},
+          {"ActionCategoryID":1,"Descr":"Collections"},
+          {"ActionCategoryID":2,"Descr":"Violations"}
+        ]
+  recorded_at: Fri, 28 Jul 2023 18:04:55 GMT
+recorded_with: VCR 6.2.0
