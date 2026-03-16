@@ -38,12 +38,10 @@ module Vantaca
     #
     # @param id [String] the internal Vantaca ID of a provider
     # @param attributes [Hash] a hash of attributes to update
-    # @return [Boolean]
+    # @return [nil] returns nil if the update was successful
     # @raise [Vantaca::Errors::NotFoundError] if the provider does not exist
     def update_provider(id, **provider_attributes)
       post('/write/providerUpdate', provider_attributes.merge(providerID: id))
-
-      true
     rescue Vantaca::Errors::ApiError
       raise Vantaca::Errors::NotFoundError
     end

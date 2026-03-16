@@ -23,8 +23,6 @@ module Vantaca
 
     def delete_ledger_entry(ledger_id)
       get('/Write/LedgerDelete', ownerLedgerID: ledger_id)
-
-      true
     end
   end
 end

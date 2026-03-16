@@ -101,8 +101,6 @@ module Vantaca
       params = { hoid: owner_id, commpref: communication, billingpref: billing }
 
       post('/Write/commPrefUpdate', params.compact)
-
-      true
     end
 
     protected
