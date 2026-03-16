@@ -92,8 +92,8 @@ module Vantaca
     # Update the communication preferences for a homeowner.
     #
     # @param owner_id [Fixnum] the internal Vantaca homeowner ID
-    # @param communication [Fixnum] the new general communication preference, accepted values: Paper, Email, App, Text
-    # @param billing [Fixnum] the internal the new billing communication preference, accepted values: Paper, Text, Email
+    # @param communication [String] the new general communication preference, accepted values: Paper, Email, App, Text
+    # @param billing [String] the internal the new billing communication preference, accepted values: Paper, Text, Email
     # @return [true]
     def update_communication_preferences(owner_id, communication: nil, billing: nil)
       raise ArgumentError, 'At least communication or billing must be passed.' unless communication || billing
