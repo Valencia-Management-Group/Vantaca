@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://service-e.vantaca.net/Write/CreateLedger?Descr=test%20fine&account=BC13506&amount=4.99&assocChgID=667&company=Vantaca&ledgerDate=2020-10-05&login=admin&pwd=abc123&type=Charge
+    uri: https://service-e.vantaca.net/write/createLedger?Descr=test%20fine&account=BC13506&amount=4.99&assocChgID=667&company=Vantaca&ledgerDate=2020-10-05&login=admin&pwd=abc123&type=Charge
     body:
       encoding: US-ASCII
       string: ''

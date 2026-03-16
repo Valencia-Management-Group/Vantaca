@@ -13,7 +13,7 @@ module Vantaca
     # @option opts [Symbol, Array<Symbol>] :include Include additional information, using keys from PROVIDER_PARAMETERS
     # @return [Array<Vantaca::Models::Provider>] a list of all providers.
     def providers(**options)
-      response = get('/Read/Provider', **provider_parameters(options))
+      response = get('/read/provider', **provider_parameters(options))
 
       raise Vantaca::Errors::NotFoundError unless response
 
@@ -27,7 +27,7 @@ module Vantaca
     # @return [Vantaca::Models::Provider] a single provider record
     # @raise [Vantaca::Errors::NotFoundError] if the provider does not exist
     def provider(id, **options)
-      response = get('/Read/ProviderSingle', **provider_parameters(options), providerID: id)
+      response = get('/read/providerSingle', **provider_parameters(options), providerID: id)
 
       Vantaca::Models::Provider.new response
     rescue Vantaca::Errors::ApiError

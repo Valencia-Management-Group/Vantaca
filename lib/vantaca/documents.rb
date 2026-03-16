@@ -7,7 +7,7 @@ module Vantaca
   # Methods which fetch lists of documents or a document itself
   module Documents
     def documents(community:)
-      response = get('/Read/Association', assocCode: community, includeDocuments: true)
+      response = get('/read/Association', assocCode: community, includeDocuments: true)
 
       return [] unless response
 
@@ -19,7 +19,7 @@ module Vantaca
     def document(community:, image_id:, &)
       raise ArgumentError, 'Vantaca::Client#document requires a block' unless block_given?
 
-      download('/Read/GetDocument', assocCode: community, imgID: image_id, &)
+      download('/read/getDocument', assocCode: community, imgID: image_id, &)
     end
   end
 end

@@ -22,7 +22,7 @@ module Vantaca
     def community_owners(assoc_code, **options)
       params = owner_parameters(assoc_code, options)
 
-      response = get('/Read/Association', **params)
+      response = get('/read/Association', **params)
 
       raise Vantaca::Errors::NotFoundError unless response
 
@@ -37,7 +37,7 @@ module Vantaca
     def account_owner(account, **options)
       params = owner_parameters(nil, options).merge(account:)
 
-      response = get('/Read/Association', **params)
+      response = get('/read/Association', **params)
 
       raise Vantaca::Errors::NotFoundError unless response
 
@@ -53,7 +53,7 @@ module Vantaca
     def property_owners(assoc_code, property_id, **options)
       params = owner_parameters(assoc_code, options).merge(propertyID: property_id)
 
-      response = get('/Read/Association', **params)
+      response = get('/read/Association', **params)
 
       raise Vantaca::Errors::NotFoundError unless response
 
@@ -70,7 +70,7 @@ module Vantaca
     def owner(assoc_code, owner_id, **options)
       params = owner_parameters(assoc_code, options).merge(Hoid: owner_id)
 
-      response = get('/Read/Association', **params)
+      response = get('/read/Association', **params)
 
       raise Vantaca::Errors::NotFoundError unless response
 
@@ -79,7 +79,7 @@ module Vantaca
 
     # This data is already included in the basic owner data - this endpoint isn't very useful.
     def communication_preferences(owner_id)
-      response = get('/Read/GetCommPreference', hoID: owner_id)
+      response = get('/read/getCommPreference', hoID: owner_id)
 
       raise Vantaca::Errors::NotFoundError unless response
 
@@ -100,7 +100,7 @@ module Vantaca
 
       params = { hoid: owner_id, commpref: communication, billingpref: billing }
 
-      post('/Write/commPrefUpdate', params.compact)
+      post('/write/commPrefUpdate', params.compact)
     end
 
     protected

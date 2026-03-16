@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://service-e.vantaca.net/Read/GetDocument?assocCode=999&company=Vantaca&imgID=3537&login=admin&pwd=abc123
+    uri: https://service-e.vantaca.net/read/getDocument?assocCode=999&company=Vantaca&imgID=3537&login=admin&pwd=abc123
     body:
       encoding: US-ASCII
       string: ''

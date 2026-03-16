@@ -14,7 +14,7 @@ module Vantaca
     def communities(**options)
       params = community_parameters(nil, options)
 
-      get('/Read/Association', **params).map { Vantaca::Models::Community.new(it) }
+      get('/read/Association', **params).map { Vantaca::Models::Community.new(it) }
     end
 
     # Load a single community by its abbreviation.
@@ -24,7 +24,7 @@ module Vantaca
     def community(assoc_code, **options)
       params = community_parameters(assoc_code, options)
 
-      response = get('/Read/Association', **params)
+      response = get('/read/Association', **params)
 
       # The API sends a 204 No Content response if there's no matching community.
       raise Vantaca::Errors::NotFoundError unless response

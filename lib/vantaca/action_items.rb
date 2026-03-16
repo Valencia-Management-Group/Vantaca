@@ -10,7 +10,7 @@ module Vantaca
     #
     # @return [Array<Vantaca::Models::ActionCategory>] active action categories
     def action_categories
-      response = get('/Read/actionCategoryList')
+      response = get('/read/actionCategoryList')
 
       return [] unless response
 
@@ -18,7 +18,7 @@ module Vantaca
     end
 
     def action_types
-      response = get('/Read/actionTypeList')
+      response = get('/read/actionTypeList')
 
       return [] unless response
 

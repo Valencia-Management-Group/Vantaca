@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://service-e.vantaca.net/Read/Error?company=Vantaca&login=admin&pwd=abc123
+    uri: https://service-e.vantaca.net/read/Error?company=Vantaca&login=admin&pwd=abc123
     body:
       encoding: US-ASCII
       string: ''
@@ -55,7 +55,7 @@ http_interactions:
         dependencies) could have been removed, had its name changed, or is temporarily
         unavailable. &nbsp;Please review the following URL and make sure that it is
         spelled correctly.\r\n            <br><br>\r\n\r\n            <b> Requested
-        URL: </b>/Read/Error<br><br>\r\n\r\n            <hr width=100% size=1 color=silver>\r\n\r\n
+        URL: </b>/read/Error<br><br>\r\n\r\n            <hr width=100% size=1 color=silver>\r\n\r\n
         \           <b>Version Information:</b>&nbsp;Microsoft .NET Framework Version:4.0.30319;
         ASP.NET Version:4.8.4494.0\r\n\r\n            </font>\r\n\r\n    </body>\r\n</html>\r\n<!--
         \r\n[HttpException]: A public action method &#39;Error&#39; was not found

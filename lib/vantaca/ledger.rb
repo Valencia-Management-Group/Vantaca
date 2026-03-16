@@ -16,13 +16,13 @@ module Vantaca
     # @param description [String] Description of the transaction.
     def create_ledger_entry(account, type:, charge_id:, date:, amount:, description:) # rubocop:disable Metrics/ParameterLists
       get(
-        '/Write/CreateLedger',
+        '/write/createLedger',
         account:, type:, assocChgID: charge_id, ledgerDate: date, amount:, Descr: description
       )
     end
 
     def delete_ledger_entry(ledger_id)
-      get('/Write/LedgerDelete', ownerLedgerID: ledger_id)
+      get('/write/ledgerDelete', ownerLedgerID: ledger_id)
     end
   end
 end
