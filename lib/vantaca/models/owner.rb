@@ -19,6 +19,14 @@ module Vantaca
         @addresses ||= data['addresses'].map { Vantaca::Models::Address.new(it, owner: self) }
       end
 
+      def emails
+        @emails ||= data['emails'].map { Vantaca::Models::Email.new(it, owner: self) }
+      end
+
+      def phones
+        @phones ||= data['phones'].map { Vantaca::Models::Phone.new(it, owner: self) }
+      end
+
       def offsite? = data['mailingAddressType'] == 'OffSiteMailingAddress'
 
       # This is the *primary* mailing address, if different from the property address
