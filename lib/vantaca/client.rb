@@ -14,8 +14,10 @@ module Vantaca
     include Vantaca::Addresses
     include Vantaca::Communities
     include Vantaca::Documents
+    include Vantaca::Emails
     include Vantaca::Ledger
     include Vantaca::Owners
+    include Vantaca::Phones
     include Vantaca::Providers
 
     headers 'Content-Type' => 'application/json'
@@ -49,6 +51,7 @@ module Vantaca
 
       raise_exception(response) unless response.code == 200
 
+      # This is always going to be `nil` for POST requests, but it doesn't hurt to be consistent.
       response.parsed_response
     end
 
