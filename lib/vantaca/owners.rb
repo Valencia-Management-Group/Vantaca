@@ -103,6 +103,19 @@ module Vantaca
       post('/write/commPrefUpdate', params.compact)
     end
 
+    def update_name(owner_id, first_name:, last_name:, spouse_first_name: nil, spouse_last_name: nil, business_name: nil)
+      params = {
+        hoID: owner_id,
+        firstName: first_name,
+        lastName: last_name,
+        spouseFirstName: spouse_first_name,
+        spouseLastName: spouse_last_name,
+        businessName: business_name
+      }
+
+      post('/write/nameUpdate', params.compact)
+    end
+
     protected
 
     def owner_parameters(community, options)
