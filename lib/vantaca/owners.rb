@@ -32,7 +32,8 @@ module Vantaca
     # Loading an owner by their account number doesn't need a community code, since the account numbers are unique.
     #
     # @param account [String] the 7-9 character account number for a property's homeowner
-    # @option opts [Symbol, Array<Symbol>] :include Include additional information, using keys from OWNER_PARAMETERS
+    # @param options [Hash] Additional options for loading information
+    # @option options [Symbol, Array<Symbol>] :include Include additional information, using keys from OWNER_PARAMETERS
     # @return [Vantaca::Models::Owner] a list of all current and former owners in this community.
     def account_owner(account, **options)
       params = owner_parameters(nil, options).merge(account:)
@@ -47,8 +48,9 @@ module Vantaca
     # Load a list of all owners for a specific property
     #
     # @param assoc_code [String] the 3-4 character association code for a community
-    # @param property_id [Fixnum] the internal Vantaca property ID
-    # @option opts [Symbol, Array<Symbol>] :include Include additional information, using keys from OWNER_PARAMETERS
+    # @param property_id [Integer] the internal Vantaca property ID
+    # @param options [Hash] Additional options for loading information
+    # @option options [Symbol, Array<Symbol>] :include Include additional information, using keys from OWNER_PARAMETERS
     # @return [Array<Vantaca::Models::Owner>] a list of all current and former owners for this property.
     def property_owners(assoc_code, property_id, **options)
       params = owner_parameters(assoc_code, options).merge(propertyID: property_id)
@@ -64,8 +66,9 @@ module Vantaca
     # properties in this community.
     #
     # @param assoc_code [String] the 3-4 character association code for a community
-    # @param owner_id [Fixnum] the internal Vantaca homeowner ID
-    # @option opts [Symbol, Array<Symbol>] :include Include additional information, using keys from OWNER_PARAMETERS
+    # @param owner_id [Integer] the internal Vantaca homeowner ID
+    # @param options [Hash] Additional options for loading information
+    # @option options [Symbol, Array<Symbol>] :include Include additional information, using keys from OWNER_PARAMETERS
     # @return [Vantaca::Models::Owner] the owner record for this homeowner
     def owner(assoc_code, owner_id, **options)
       params = owner_parameters(assoc_code, options).merge(Hoid: owner_id)
@@ -91,7 +94,7 @@ module Vantaca
 
     # Update the communication preferences for a homeowner.
     #
-    # @param owner_id [Fixnum] the internal Vantaca homeowner ID
+    # @param owner_id [Integer] the internal Vantaca homeowner ID
     # @param communication [String] the new general communication preference, accepted values: Paper, Email, App, Text
     # @param billing [String] the internal the new billing communication preference, accepted values: Paper, Text, Email
     # @return [true]

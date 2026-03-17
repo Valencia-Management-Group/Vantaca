@@ -29,10 +29,10 @@ module Vantaca
     # through the API.
     #
     # @param assoc_code [String] the 3-4 character association code for a community
-    # @param action_type_id [Fixnum] the internal Vantaca action type ID
+    # @param action_type_id [Integer] the internal Vantaca action type ID
     # @param options [Hash] Additional options for the action item
-    # @option options [Fixnum, nil] :step_id Unique identifier for an action item step.
-    # @option options [Fixnum, nil] :property_id Unique identifier for a property related to this action item.
+    # @option options [Integer, nil] :step_id Unique identifier for an action item step.
+    # @option options [Integer, nil] :property_id Unique identifier for a property related to this action item.
     # @option options [String, nil] :description A description of the action item.
     # @option options [String, nil] :subject A short subject line for the action item.
     # @option options [Date, nil] :followup_date The follow-up date for this action item.
@@ -55,10 +55,10 @@ module Vantaca
     # through the API.
     #
     # @param account_no [String] the 7-9 character account number for a property's homeowner
-    # @param action_type_id [Fixnum] the internal Vantaca action type ID
+    # @param action_type_id [Integer] the internal Vantaca action type ID
     # @param options [Hash] Additional options for the action item
-    # @option options [Fixnum, nil] :step_id Unique identifier for an action item step.
-    # @option options [Fixnum, nil] :property_id Unique identifier for a property related to this action item.
+    # @option options [Integer, nil] :step_id Unique identifier for an action item step.
+    # @option options [Integer, nil] :property_id Unique identifier for a property related to this action item.
     # @option options [String, nil] :description A description of the action item.
     # @option options [String, nil] :subject A short subject line for the action item.
     # @option options [Date, nil] :followup_date The follow-up date for this action item.

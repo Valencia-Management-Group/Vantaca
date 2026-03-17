@@ -10,7 +10,7 @@ module Vantaca
     #
     # @param account [String] The 7-9 character account number for the homeowner, e.g. 'ABC12345'
     # @param type [String] Type of transaction. Possible values: Charge, Adjustment, Writeoff.
-    # @param charge_id [Fixnum] The association Charge ID associated with this owners account.
+    # @param charge_id [Integer] The association Charge ID associated with this owners account.
     # @param date [String] The ledger date for this transaction, e.g. '2020-12-25'
     # @param amount [Float] Transaction amount. Must be greater than 0.
     # @param description [String] Description of the transaction.
