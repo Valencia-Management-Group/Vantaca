@@ -106,14 +106,23 @@ module Vantaca
       post('/write/commPrefUpdate', params.compact)
     end
 
-    def update_name(owner_id, first_name:, last_name:, spouse_first_name: nil, spouse_last_name: nil, business_name: nil)
+    # Update name fields for a homeowner. Use empty strings to clear existing values, or nil to leave them unchanged.
+    #
+    # @param owner_id [Integer] the internal Vantaca homeowner ID
+    # @param options [Hash] the name fields to update
+    # @option options [String, nil] :first_name The homeowner's first name
+    # @option options [String, nil] :last_name The homeowner's last name
+    # @option options [String, nil] :spouse_first_name The homeowner's spouse's first name
+    # @option options [String, nil] :spouse_last_name The homeowner's spouse's last name
+    # @option options [String, nil] :business_name The homeowner's business name
+    def update_name(owner_id, **options)
       params = {
         hoID: owner_id,
-        firstName: first_name,
-        lastName: last_name,
-        spouseFirstName: spouse_first_name,
-        spouseLastName: spouse_last_name,
-        businessName: business_name
+        firstName: options[:first_name],
+        lastName: options[:last_name],
+        spouseFirstName: options[:spouse_first_name],
+        spouseLastName: options[:spouse_last_name],
+        businessName: options[:business_name]
       }
 
       post('/write/nameUpdate', params.compact)
