@@ -17,12 +17,28 @@ module Vantaca
       Array(response).map { Vantaca::Models::ActionCategory.new(it) }
     end
 
+    # Load all active action types and their steps.
+    #
+    # @return [Array<Vantaca::Models::ActionType>] active action types
     def action_types
       response = get('/read/actionTypeList')
 
       return [] unless response
 
       Array(response).map { Vantaca::Models::ActionType.new(it) }
+    end
+
+    # Retrieve details about an action item.
+    #
+    # @param action_item_id [Integer] the internal Vantaca ID of an action item
+    # @return [Vantaca::Models::ActionItem] the action item with the specified ID
+    # @raise [Vantaca::Errors::NotFoundError] if the action item does not exist
+    def action_item(action_item_id)
+      response = get('/read/getActionItem', actionItemID: action_item_id)
+
+      raise Vantaca::Errors::NotFoundError unless response
+
+      Vantaca::Models::ActionItem.new response
     end
 
     # Create a new action item for a specific association. Only action items in the Standard category can be created
