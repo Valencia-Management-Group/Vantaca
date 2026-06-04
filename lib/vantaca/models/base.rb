@@ -16,6 +16,8 @@ module Vantaca
       def dig(...) = @data.dig(...)
 
       def [](key) = @data[key]
+
+      def instance_variables_to_inspect = []
     end
   end
 end

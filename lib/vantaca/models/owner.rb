@@ -7,9 +7,15 @@ module Vantaca
   module Models
     # Information about an owner, received from the Vantaca API
     class Owner < Base
-      def id = data['hoid']
+      attr_reader :account
 
-      def account = data['accountNo']
+      def initialize(data)
+        super
+
+        @account = data['accountNo']
+      end
+
+      def id = data['hoid']
 
       def property_id = data['propertyID']
 
@@ -56,6 +62,8 @@ module Vantaca
           billing: data['BillingPref']
         }
       end
+
+      def instance_variables_to_inspect = %i[@account]
     end
   end
 end

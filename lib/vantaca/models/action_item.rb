@@ -5,7 +5,7 @@
 
 module Vantaca
   module Models
-    # Information about an action category
+    # Information about a single action item
     class ActionItem < Base
       # @return [Integer] unique identifier for action category
       def type_id = data['actionTypeID']
