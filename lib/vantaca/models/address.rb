@@ -7,17 +7,16 @@ module Vantaca
   module Models
     # Information about an address, received from the Vantaca API
     class Address < Base
-      attr_reader :owner
+      attr_reader :id, :label, :owner
 
       def initialize(data, owner:)
         super(data)
 
         @owner = owner
+
+        @id = data['addrID']
+        @label = data['label']
       end
-
-      def id = data['addrID']
-
-      def label = data['label']
 
       def mailing? = data['isMailing']
 
@@ -41,6 +40,8 @@ module Vantaca
         ].compact.map(&:strip).join("\n")
       end
       alias formatted to_s
+
+      def instance_variables_to_inspect = %i[@id @label]
 
       protected
 

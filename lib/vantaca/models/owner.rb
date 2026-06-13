@@ -7,17 +7,15 @@ module Vantaca
   module Models
     # Information about an owner, received from the Vantaca API
     class Owner < Base
-      attr_reader :account
+      attr_reader :account, :id, :property_id
 
       def initialize(data)
         super
 
+        @id = data['hoid']
+        @property_id = data['propertyID']
         @account = data['accountNo']
       end
-
-      def id = data['hoid']
-
-      def property_id = data['propertyID']
 
       def in_collections? = data['collectionStatus'] != ''
 
@@ -63,7 +61,7 @@ module Vantaca
         }
       end
 
-      def instance_variables_to_inspect = %i[@account]
+      def instance_variables_to_inspect = %i[@id @account @property_id]
     end
   end
 end
