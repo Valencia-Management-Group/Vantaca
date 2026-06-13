@@ -16,6 +16,10 @@ module Vantaca
       def folder_path = data['folderPath']
 
       def security_id = data['securityID']
+
+      SECURITY_LEVELS.each_with_index do |level, index|
+        define_method("#{level.downcase}?") { security_id <= index }
+      end
     end
   end
 end
