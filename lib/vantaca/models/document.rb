@@ -17,6 +17,9 @@ module Vantaca
 
       def security_id = data['securityID']
 
+      # @return [Time] date and time when this action item was created
+      def created_at = Time.parse(data['created'])
+
       SECURITY_LEVELS.each_with_index do |level, index|
         define_method("#{level.downcase}?") { security_id <= index }
       end
