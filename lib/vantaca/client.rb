@@ -24,12 +24,6 @@ module Vantaca
 
     base_uri 'https://service-e.vantaca.net/'
 
-    attr_accessor :logger
-
-    def initialize(logger: IO::NULL)
-      @logger = logger_for(logger)
-    end
-
     def get(endpoint, **query)
       response = self.class.get endpoint, query: query.merge(default_params)
 
@@ -96,14 +90,6 @@ module Vantaca
       raise_exception(response) unless response.code == 200
 
       response
-    end
-
-    def logger_for(logger)
-      return logger if logger.is_a?(::Logger)
-
-      return Vantaca.configuration.logger if logger == IO::NULL && Vantaca.configuration.logger
-
-      ::Logger.new(logger)
     end
   end
 end
