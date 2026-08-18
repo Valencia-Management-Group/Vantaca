@@ -27,7 +27,9 @@ module Vantaca
     end
 
     def logger=(new_logger)
-      raise ArgumentError, 'Logger must be an instance of the Logger class' unless new_logger.is_a?(::Logger)
+      unless new_logger.is_a?(::Logger) || new_logger.instance_of?(::ActiveSupport::BroadcastLogger)
+        raise ArgumentError, 'Logger must be an instance of the Logger class'
+      end
 
       @logger = new_logger
     end
