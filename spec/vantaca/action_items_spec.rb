@@ -33,4 +33,35 @@ RSpec.describe Vantaca::ActionItems do
       expect(action_types.first.description).to eq 'Software Support'
     end
   end
+
+  describe '#arc_requests' do
+    it 'GETs ARC requests for an association', vcr: false do
+      stub_request(
+        :get,
+        'https://service-e.vantaca.net/read/ARCList?assocCode=ABC&company=Vantaca&includeMessage=false&login=admin&pwd=abc123'
+      ).to_return(
+        status: 200,
+        body: [{
+          arcType: 'Mailbox',
+          xnNumber: '123456',
+          assocCode: 'ABC',
+          accountNo: '100253647',
+          propertyID: '10212',
+          closed: false,
+          description: 'Mailbox replacement request',
+          subject: 'Mailbox inquiry',
+          createdDate: '2021-08-05T15:44:14.85',
+          lastModified: '2021-08-06T09:00:00'
+        }].to_json,
+        headers: { 'Content-Type' => 'application/json' }
+      )
+
+      arc_requests = client.arc_requests('ABC')
+
+      expect(arc_requests).to all(be_a(Vantaca::Models::ArcRequest))
+      expect(arc_requests.first.xn_number).to eq '123456'
+      expect(arc_requests.first.assoc_code).to eq 'ABC'
+      expect(arc_requests.first.closed?).to be false
+    end
+  end
 end

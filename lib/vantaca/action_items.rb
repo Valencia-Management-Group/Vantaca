@@ -28,6 +28,26 @@ module Vantaca
       Array(response).map { Vantaca::Models::ActionType.new(it) }
     end
 
+    # Load all ARC requests for a specific association.
+    #
+    # @param assoc_code [String] the 3-4 character association code for a community
+    # @param account_no [String, nil] limit results to a homeowner account
+    # @param xn_number [String, nil] limit results to an ARC request
+    # @param include_message [Boolean] whether to include messages and notes in the response
+    # @return [Array<Vantaca::Models::ArcRequest>] ARC requests for the association
+    def arc_requests(assoc_code, account_no: nil, xn_number: nil, include_message: false)
+      params = {
+        assocCode: assoc_code,
+        accountNo: account_no,
+        xnNumber: xn_number,
+        includeMessage: include_message
+      }.compact
+
+      response = get('/read/ARCList', **params)
+
+      Array(response).map { Vantaca::Models::ArcRequest.new(it) }
+    end
+
     # Retrieve details about an action item.
     #
     # @param action_item_id [Integer] the internal Vantaca ID of an action item
