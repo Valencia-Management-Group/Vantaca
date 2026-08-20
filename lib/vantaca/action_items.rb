@@ -35,12 +35,12 @@ module Vantaca
     # @param xn_number [String, nil] limit results to an ARC request
     # @param include_message [Boolean] whether to include messages and notes in the response
     # @return [Array<Vantaca::Models::ArcRequest>] ARC requests for the association
-    def arc_requests(assoc_code, account_no: nil, xn_number: nil, include_message: false)
+    def arc_requests(assoc_code, account_no: nil, xn_number: nil, include_messages: false)
       params = {
         assocCode: assoc_code,
         accountNo: account_no,
         xnNumber: xn_number,
-        includeMessage: include_message
+        includeMessages: include_messages
       }.compact
 
       response = get('/read/ARCList', **params)
