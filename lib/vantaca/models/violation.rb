@@ -62,7 +62,7 @@ module Vantaca
       def updated_at = data['lastModified'] && Time.parse(data['lastModified'])
 
       # @return [Array<Hash>] messages and notes, when requested
-      def messages = data['message'] || []
+      def messages = data['messages'] || []
 
       # @return [Integer] unique identifier for each action item step
       def step_id = data['stepID']

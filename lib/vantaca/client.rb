@@ -19,6 +19,7 @@ module Vantaca
     include Vantaca::Owners
     include Vantaca::Phones
     include Vantaca::Providers
+    include Vantaca::Violations
 
     headers 'Content-Type' => 'application/json'
 

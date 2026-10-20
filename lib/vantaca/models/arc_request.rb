@@ -38,7 +38,7 @@ module Vantaca
       def updated_at = data['lastModified'] && Time.parse(data['lastModified'])
 
       # @return [Array<Hash>] messages and notes, when requested
-      def messages = data['message'] || []
+      def messages = data['messages'] || []
     end
   end
 end
