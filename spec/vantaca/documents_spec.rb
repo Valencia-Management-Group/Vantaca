@@ -10,6 +10,27 @@ RSpec.describe Vantaca::Documents do
 
   let(:client) { Vantaca::Client.new }
 
+  describe '#attachment_list' do
+    it 'GETs messages and attachments for an action item' do
+      response = [{ 'messageID' => '123', 'attachmentID' => '456', 'fileName' => 'example.pdf' }]
+      stub_request(:get, 'https://service-e.vantaca.net/read/AttachmentList')
+        .with(query: hash_including(
+          'xnNumber' => 'ABC123',
+          'messageID' => '123',
+          'attachmentID' => '456',
+          'includeFile' => 'true'
+        ))
+        .to_return(status: 200, body: response.to_json, headers: { 'Content-Type' => 'application/json' })
+
+      expect(client.attachment_list(
+        xn_number: 'ABC123',
+        message_id: '123',
+        attachment_id: '456',
+        include_file: true
+      )).to eq response
+    end
+  end
+
   describe '#documents' do
     it 'GETs a list of documents', vcr: 'documents/all' do
       documents = client.documents(community: 999)
