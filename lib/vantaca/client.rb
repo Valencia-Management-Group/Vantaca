@@ -57,6 +57,7 @@ module Vantaca
         file.binmode
 
         file.write download_raw_data(endpoint, **params)
+        file.rewind
 
         yield file
       end
@@ -90,7 +91,7 @@ module Vantaca
 
       raise_exception(response) unless response.code == 200
 
-      response
+      response.body
     end
   end
 end

@@ -50,7 +50,10 @@ RSpec.describe Vantaca::Documents do
 
   describe '#document' do
     it 'GETs a single document', vcr: 'documents/single' do
-      client.document(community: 999, image_id: 3537) { expect(it.size).to eq 204_523 }
+      client.document(community: 999, image_id: 3537) do |file|
+        expect(file.size).to eq 204_523
+        expect(file.read(5)).to eq '%PDF-'
+      end
     end
   end
 end
